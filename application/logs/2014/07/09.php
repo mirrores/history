@@ -1,0 +1,18 @@
+<?php defined('SYSPATH') or die('No direct script access.'); ?>
+
+2014-07-09 15:00:02 --- ERROR: ErrorException [ 8 ]: Undefined index: home_title ~ APPPATH\views\layout\main.php [ 4 ]
+2014-07-09 15:06:06 --- ERROR: ErrorException [ 8 ]: Undefined index: home_title ~ APPPATH\views\layout\main.php [ 4 ]
+2014-07-09 15:06:55 --- ERROR: ErrorException [ 8 ]: Undefined index: home_title ~ APPPATH\views\layout\main.php [ 4 ]
+2014-07-09 15:35:19 --- ERROR: ErrorException [ 8 ]: Undefined index: home_title ~ APPPATH\views\layout\main.php [ 4 ]
+2014-07-09 15:35:22 --- ERROR: ErrorException [ 8 ]: Undefined index: home_title ~ APPPATH\views\layout\main.php [ 4 ]
+2014-07-09 15:35:35 --- ERROR: ErrorException [ 8 ]: Undefined index: home_title ~ APPPATH\views\layout\main.php [ 4 ]
+2014-07-09 15:36:16 --- ERROR: ErrorException [ 8 ]: Undefined index: gray_site ~ APPPATH\views\layout\main.php [ 19 ]
+2014-07-09 15:37:17 --- ERROR: ErrorException [ 8 ]: Undefined index: keywords ~ APPPATH\views\layout\xhtml.php [ 6 ]
+2014-07-09 15:37:58 --- ERROR: ErrorException [ 8 ]: Undefined index:  ~ DOCROOT\candybox\Kohana\classes\candy\controller.php [ 210 ]
+2014-07-09 15:38:08 --- ERROR: ErrorException [ 8 ]: Undefined index: keywords ~ APPPATH\views\layout\xhtml.php [ 6 ]
+2014-07-09 15:38:17 --- ERROR: ErrorException [ 8 ]: Undefined index: keywords ~ APPPATH\views\layout\xhtml.php [ 6 ]
+2014-07-09 15:38:24 --- ERROR: ErrorException [ 8 ]: Undefined index: keywords ~ APPPATH\views\layout\xhtml.php [ 6 ]
+2014-07-09 15:52:15 --- ERROR: ErrorException [ 64 ]: Cannot redeclare class BaseEventSign ~ DOCROOT\candybox\ORM\model\generated\BaseEventSign2.php [ 31 ]
+2014-07-09 15:56:33 --- ERROR: ErrorException [ 64 ]: Cannot redeclare class BaseEventSign ~ DOCROOT\candybox\ORM\model\generated\BaseEventSign2.php [ 31 ]
+2014-07-09 15:56:34 --- ERROR: ErrorException [ 64 ]: Cannot redeclare class BaseEventSign ~ DOCROOT\candybox\ORM\model\generated\BaseEventSign2.php [ 31 ]
+2014-07-09 16:37:36 --- ERROR: ErrorException [ 8 ]: Undefined index: keywords ~ APPPATH\views\layout\bbs.php [ 6 ]

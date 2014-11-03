@@ -1,0 +1,18 @@
+<?php defined('SYSPATH') or die('No direct script access.'); ?>
+
+2014-03-21 10:27:05 --- ERROR: ErrorException [ 8 ]: Undefined index: award_name ~ APPPATH\views\admin_wedding\lottery_results.php [ 19 ]
+2014-03-21 10:52:48 --- ERROR: Doctrine_Exception [ 0 ]: Couldn't find class wedding_lottery ~ DOCROOT\candybox\Doctrine\Table.php [ 299 ]
+2014-03-21 10:55:03 --- ERROR: Doctrine_Exception [ 0 ]: Couldn't find class wedding_lottery ~ DOCROOT\candybox\Doctrine\Table.php [ 299 ]
+2014-03-21 10:56:31 --- ERROR: ErrorException [ 8 ]: Undefined variable: members ~ APPPATH\classes\controller\admin\wedding.php [ 424 ]
+2014-03-21 11:08:08 --- ERROR: ErrorException [ 8 ]: Undefined variable: id ~ APPPATH\classes\controller\admin\wedding.php [ 437 ]
+2014-03-21 11:32:04 --- ERROR: Doctrine_Connection_Mysql_Exception [ 42000 ]: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AS `w__0` FROM `wedding_awards` `w` WHERE (`w`.`lottery_id` = '1')' at line 1 ~ DOCROOT\candybox\Doctrine\Connection.php [ 1082 ]
+2014-03-21 11:32:51 --- ERROR: Doctrine_Connection_Mysql_Exception [ 42000 ]: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT AS `w__0` FROM `wedding_awards` `w` WHERE (`w`.`lottery_id` = '1')' at line 1 ~ DOCROOT\candybox\Doctrine\Connection.php [ 1082 ]
+2014-03-21 11:33:17 --- ERROR: Doctrine_Connection_Mysql_Exception [ 42000 ]: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT AS `w__0` FROM `wedding_awards` `w` WHERE (`w`.`lottery_id` = '1')' at line 1 ~ DOCROOT\candybox\Doctrine\Connection.php [ 1082 ]
+2014-03-21 11:35:33 --- ERROR: ErrorException [ 8 ]: Undefined variable: probability ~ APPPATH\views\admin_wedding\lottery_awards.php [ 27 ]
+2014-03-21 12:41:59 --- ERROR: ErrorException [ 4 ]: syntax error, unexpected '?>', expecting ']' ~ APPPATH\views\admin_wedding\lottery_awards.php [ 6 ]
+2014-03-21 13:13:39 --- ERROR: ErrorException [ 8 ]: Undefined variable: id ~ APPPATH\classes\controller\admin\wedding.php [ 566 ]
+2014-03-21 13:50:05 --- ERROR: Doctrine_Connection_Mysql_Exception [ 23000 ]: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY' ~ DOCROOT\candybox\Doctrine\Connection.php [ 1082 ]
+2014-03-21 13:50:23 --- ERROR: Doctrine_Connection_Mysql_Exception [ 23000 ]: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY' ~ DOCROOT\candybox\Doctrine\Connection.php [ 1082 ]
+2014-03-21 16:23:48 --- ERROR: ErrorException [ 8 ]: Undefined variable: notice ~ APPPATH\views\wedding\inc_notice.php [ 4 ]
+2014-03-21 16:24:47 --- ERROR: ErrorException [ 8 ]: Undefined variable: notice ~ APPPATH\views\wedding\index.php [ 3 ]
+2014-03-21 16:25:20 --- ERROR: ErrorException [ 8 ]: Undefined variable: notice ~ APPPATH\views\wedding\index.php [ 3 ]

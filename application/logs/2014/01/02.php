@@ -1,0 +1,16 @@
+<?php defined('SYSPATH') or die('No direct script access.'); ?>
+
+2014-01-02 14:23:45 --- ERROR: ErrorException [ 8 ]: Undefined variable: uid ~ APPPATH\classes\controller\wedding.php [ 22 ]
+2014-01-02 14:25:23 --- ERROR: Doctrine_Connection_Mysql_Exception [ 42 ]: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'w.user_id' in 'field list' ~ DOCROOT\candybox\Doctrine\Connection.php [ 1082 ]
+2014-01-02 14:26:06 --- ERROR: Doctrine_Connection_Mysql_Exception [ 42 ]: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'w.user_id' in 'field list' ~ DOCROOT\candybox\Doctrine\Connection.php [ 1082 ]
+2014-01-02 14:26:07 --- ERROR: Doctrine_Connection_Mysql_Exception [ 42 ]: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'w.user_id' in 'field list' ~ DOCROOT\candybox\Doctrine\Connection.php [ 1082 ]
+2014-01-02 15:03:20 --- ERROR: ErrorException [ 8 ]: Undefined variable: pager ~ APPPATH\classes\controller\admin\wedding.php [ 31 ]
+2014-01-02 15:10:50 --- ERROR: ErrorException [ 8 ]: Undefined index: type ~ APPPATH\views\admin_wedding\index.php [ 49 ]
+2014-01-02 15:13:57 --- ERROR: ErrorException [ 8 ]: Undefined index: publish_at ~ APPPATH\views\admin_wedding\index.php [ 55 ]
+2014-01-02 15:26:43 --- ERROR: Doctrine_Exception [ 0 ]: Couldn't find class s ~ DOCROOT\candybox\Doctrine\Table.php [ 299 ]
+2014-01-02 15:27:18 --- ERROR: Doctrine_Exception [ 0 ]: Couldn't find class s ~ DOCROOT\candybox\Doctrine\Table.php [ 299 ]
+2014-01-02 15:27:19 --- ERROR: Doctrine_Exception [ 0 ]: Couldn't find class s ~ DOCROOT\candybox\Doctrine\Table.php [ 299 ]
+2014-01-02 15:27:31 --- ERROR: Doctrine_Exception [ 0 ]: Couldn't find class s ~ DOCROOT\candybox\Doctrine\Table.php [ 299 ]
+2014-01-02 15:28:47 --- ERROR: Doctrine_Exception [ 0 ]: Couldn't find class s ~ DOCROOT\candybox\Doctrine\Table.php [ 299 ]
+2014-01-02 15:29:32 --- ERROR: Doctrine_Exception [ 0 ]: Couldn't find class s ~ DOCROOT\candybox\Doctrine\Table.php [ 299 ]
+2014-01-02 15:29:32 --- ERROR: Doctrine_Exception [ 0 ]: Couldn't find class s ~ DOCROOT\candybox\Doctrine\Table.php [ 299 ]

@@ -1,0 +1,186 @@
+body{margin: 0;padding: 0;font-size:12px; background: url(/static/images/wedding/bodybg2.jpg) repeat-x bottom}
+#footer{text-align: center;padding: 20px 0;line-height: 1.6em;color: #E47E9B;margin-top: 50px }
+#footer a{color: #E47E9B;text-decoration:none}
+#footer a:hover{color: #D15F80}
+
+a:link,a:visited{color: #666;text-decoration: none}
+a:hover{color: #333;}
+
+p{margin: 0;padding: 0}
+.clear{clear: both}
+
+.yahei {font-family: 'YaHei Consolas Hybrid', 'Microsoft YaHei', "微软雅黑", '黑体';}
+
+.nodata{margin: 50px 0;color: #999; text-align: center}
+.top1{height: 117px;background: url(/static/images/wedding/top1.jpg) no-repeat top center;}
+.top2{height: 180px;background: url(/static/images/wedding/top2.jpg) no-repeat top center;}
+.top3{height: 96px;background: url(/static/images/wedding/top3.jpg) no-repeat top center;}
+.gonggao{height: 85px;background: url(/static/images/wedding/top5_gonggao.jpg) no-repeat top center;}
+.gonggao2{height: 85px;background: url(/static/images/wedding/top5_gonggao2.jpg) no-repeat top center;}
+
+#main_w1000{width: 1000px; margin: 0 auto;min-height: 600px;padding-bottom: 100px}
+/*新人展示列表*/
+.photo_list{margin: 10px 0; position: relative}
+.photo_list .wrap{position:relative; float:left; width: 236px; height:177px; margin:5px;background:#fff; overflow:hidden;} 
+.photo_list .wrap img.pp{position:absolute; top:0; left:0;width: 236px} 
+.photo_list .wrap h3{line-height:30px; font-size:12px; color:#fff; margin: 0;padding: 0;font-weight: normal; text-align: center} 
+.photo_list .wrap p{line-height:20px} 
+.photo_list .cover{color: #fff;position:absolute; background:#F58BA2; height:230px; width:100%;  padding:3px; top:145px;opacity: 0.9;} 
+.photo_list .cover a{color: #fff;} 
+
+.newtop{position: absolute;top:5px;right: -195px;width: 180px;height: 530px; border: 1px solid #EDC6CB;background: #FAEAEA;padding: 10px}
+.newtop ul{list-style: none;padding: 0; font-family: verdana;margin: 0}
+.newtop ul li{list-style: none; padding:3px 2px 4px 5px;color: #CE4662 }
+.newtop ul li span.goodnum{ float: right;text-align: right;color: #999}
+
+.comment_pager{ margin:20px 10px; clear: both; padding: 20px}
+.comment_pager .total{background:#f5f5f5; padding:5px 8px; margin-left:3px;color:#666}
+.comment_pager, .pics_pager{ text-align:center; clear:both; float:none; margin:10px; }
+.comment_pager a, .pics_pager a{ background:#f5f5f5; padding:5px 8px; margin-left:3px;color:#666}
+.comment_pager a:hover, .pics_pager a:hover{ background:#F2B4C1; text-decoration: none}
+.comment_pager strong, .pics_pager strong{ padding:5px 8px; background:#F696AB; color:#fff; margin-left:3px; }
+
+.candy_form_err, .candy_form_success, .candy_form_resp { margin: 10px 0px; padding:10px;-moz-border-radius: 8px;-khtml-border-radius: 8px;-webkit-border-radius: 8px;border: 1px solid;}
+.candy_form_err{background:#FDF6D4;color:#52565B;border-color:#EAE3C1;font-size:12px}
+.candy_form_success{background:#E6EFC2;color:#264409;border-color:#C6D880;font-size:12px}
+.candy_form_resp{background: #f5f5f5;color: #666;border-color: #ccc;font-size:12px;}
+.candyCorner{-moz-border-radius: 5px;-khtml-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;}
+.candyPointer{cursor: pointer;}
+
+
+#sign_form_div{width:900px;margin: 10px auto;margin-top: -20px;border:3px solid #ED8BA7;padding:10px;-webkit-border-radius: 15px; border-radius: 15px;}
+table td{font-size: 12px;color: #333;padding: 3px 2px}
+.td_field{text-align: right;padding: 2px;width: 80px}
+.td_title{font-size: 12px;font-weight: bold;height: 30px;line-height: 30px}
+table .text{border: 1px solid #ED8BA7;padding:4px;background: #F7E8E8;height: 18px;line-height: 18px;-webkit-border-radius: 5px; border-radius: 5px;}
+table .text:hover{border: 1px solid #F5B4C6;background: #fff}
+table .width100{width: 150px;}
+table .width200{width: 200px; }
+table .width250{width: 270px; }
+table .width280{width: 280px; }
+table .width300{width:300px;}
+.textarea{border: 1px solid #ED8BA7;padding:4px;background: #F7E8E8;height:100px;width:655px;-webkit-border-radius: 5px; border-radius: 5px;}
+.textarea:hover{border: 1px solid #F5B4C6;background: #fff}
+
+//祝福
+.wish-box{float: left;width: 600px;height: 700px;padding:5px;overflow: hidden;position: relative;}
+#wish { width: 620px; height:700px; margin:0 0 0 -15px; position: relative;}
+.wish { width: 155px;height: 128px;background: url(/static/images/wedding/bqbg1.png) no-repeat 0 0;color: black;padding:25px 20px 20px 30px;word-wrap:break-word;margin: 20px}
+.wish  p{margin: 10px;text-align: right;color: #333}
+
+.s1 {background: url(/static/images/wedding/bqbg1.png) no-repeat 0 0;color: #645F0A}
+.s1 p{color: #C6C464}
+.s2 {background: url(/static/images/wedding/bqbg2.png) no-repeat 0 0;color: #AA4027}
+.s2 p {color: #DB8674}
+.s3 {background: url(/static/images/wedding/bqbg3.png) no-repeat 0 0;color: #34640D}
+.s3 p{color: #98CB74}
+.s4 {background: url(/static/images/wedding/bqbg4.png) no-repeat 0 0;color: #670A81}
+.s4 p{color: #B976C9}
+.s5 {background: url(/static/images/wedding/bqbg5.png) no-repeat 0 0;color: #05406C}
+.s5 p{color: #6CA2CB}
+
+.wish p { white-space: normal;}
+.wish .close { display:block;position:absolute;top:8px;right:15px;background:url(/static/images/wedding/close.png) no-repeat 0 0;width:17px;height: 17px;display: none;cursor: pointer} 
+
+.ly-plate{
+    position:relative;
+    width:345px;
+    height:345px;
+    margin: 10px auto;
+}
+.rotate-bg{
+    width:345px;
+    height:345px;
+    background:url(/static/images/wedding/dazhuanpan.jpg);
+    position:absolute;
+    top:0;
+    left:0
+}
+.ly-plate div.lottery-star{
+    width:150px;
+    height:150px;
+    position:absolute;
+    top:98px;
+    left:98px;
+    *left:208px;
+    /*text-indent:-999em;
+    overflow:hidden;
+    background:url(rotate-static.png);
+    -webkit-transform:rotate(0deg);*/
+    outline:none
+}
+.ly-plate div.lottery-star #lotteryBtn{
+    cursor: pointer;
+    position: absolute;
+    top:0;
+    left:0;
+    *left:-109px
+}
+
+ul.logobox1{list-style: none;margin: 0;padding: 0}
+ul.logobox1 li{list-style: none;margin: 10px 5px; width: 1000px;overflow: hidden}
+ul.logobox1 img{border: 1px solid #ff0;padding: 4px;width: 1000px;height: 140px}
+
+ul.logobox{list-style: none;margin: 0;padding: 0}
+ul.logobox li{float: left; list-style: none;width: 190px;height:100px;margin: 5px 5px; overflow: hidden}
+ul.logobox img{border: 1px solid #ff0;padding: 4px;width: 190px;height:100px;}
+
+ul.notice_ul{margin: 0;padding:0;list-style: none;margin-bottom: 20px}
+ul.notice_ul li{list-style: none;margin: 5px 0}
+ul.notice_ul li a{font-size: 14px;}
+ul.notice_ul li a:hover{font-size: 14px;}
+
+form{margin: 0;padding: 0}
+
+
+
+/*first_prize*/
+.first_tit{clear: both;color: #fb8da6;font-family: '微软雅黑',Arial;font-size: 25px;height: 50px;line-height: 50px;padding-left: 40px;width: 110px;}
+/*轮播*/
+a.abtn{display:block;height:500px;width:17px;overflow:hidden;background:url(../images/wedding/arrow3.png) no-repeat 0px 50%;}
+a.aleft{float:left;}
+a.agrayleft{cursor:default;background-position:-34px 50%;}
+a.aright{float:right;background-position:-17px 50%;}
+a.agrayright{cursor:default;background-position:-51px 50%;}
+.scrolllist{width:950px;height:500px;margin:0 auto;}
+.scrolllist .imglist_w ul{margin:0;padding:0;}
+.scrolllist .imglist_w li{margin:0;padding:0;list-style-type:none;}
+.scrolllist .imglist_w{ margin-left:50px;width:820px;height:500px;overflow:hidden;float:left;position:relative;/*必要元素*/}
+.scrolllist .imglist_w ul{width:20000px;position:absolute;left:0px;top:0px;}
+.scrolllist .imglist_w li{width:820px;float:left;padding:0 0px;}
+.scrolllist .imglist_w li img{padding:0px;border:solid 0px #ddd;}
+.scrolllist .imglist_w li a{color:#3366cc;text-decoration:none;float:left;}
+.scrolllist .imglist_w li a:hover img{filter:alpha(opacity=86);-moz-opacity:0.86;opacity:0.86;}
+.scrolllist .imglist_w li p{margin:0;padding:0;width:820px; height:85px;line-height:85px; text-align:center; font-size:24px;overflow:hidden;float:left; position:absolute; bottom:0; font-family:"微软雅黑", Arial; color:#FFF; z-index:99;}
+.scrolllist .imglist_w li .imglistbgdiv{width:820px; background-color:#ef92a5;opacity:0.5;filter:alpha(opacity=50); height:85px;;float:left; position:absolute; bottom:0;}
+
+/*second_prize*/
+.second_prize{clear:both; margin-bottom:20px; overflow:hidden;}
+.second_prize dt{width:110px; padding-left:40px; height:50px; line-height:50px; font-size:25px; color:#ef92a5;  font-family:'微软雅黑', Arial;  clear:both;}
+.second_prize dd li{width:250px; height:185px; list-style:none; padding:0; margin:30px 15px 0 15px; position:relative; float:left;}
+.second_prize dd li .div{width:250px; height:38px; background-color:#ef92a5;opacity:0.5;filter:alpha(opacity=50);float:left; position:absolute; bottom:0;}
+.second_prize dd li p{ margin:0;width:250px; height:38px; line-height:38px; overflow:hidden;float:left; position:absolute; bottom:0; font-family:"微软雅黑", Arial; color:#FFF; z-index:99; text-align:center;}
+
+/*third_prize*/
+.third_prize{clear:both; overflow:hidden;}
+.third_prize dt{width:210px; padding-left:40px; height:50px; line-height:50px; font-size:25px; font-family:'微软雅黑', Arial; color:#ef92a5; clear:both;}
+.third_prize dd li{width:250px; height:185px; list-style:none; padding:0; margin:30px 15px 0 15px; position:relative; float:left; overflow: hidden}
+.third_prize dd li .div{width:100%; height:38px; background-color:#ef92a5;opacity:0.5;filter:alpha(opacity=50);float:left; position:absolute; bottom:0;}
+.third_prize dd li p{ margin:0;width:250px; height:38px; line-height:38px; overflow:hidden;float:left; position:absolute; bottom:0; font-family:"微软雅黑", Arial; color:#FFF; z-index:99; text-align:center;}
+.third_prize .more{height:26px; line-height:26px; width:auto; clear:both; text-align:right; padding:20px 0; font-size:25px;font-family:'微软雅黑', Arial;}
+.third_prize .more a{ color:#e9919f;}
+
+/*other_prize*/
+.other_prize{clear:both; margin-bottom:20px; overflow:hidden;}
+.other_prize dt{width:110px; padding-left:40px; height:50px; line-height:50px; font-size:25px; font-family:'微软雅黑', Arial; color:#ef92a5; clear:both;}
+.other_prize dd li{width:190px; height:150px; list-style:none; padding:0; margin:30px 15px 0 15px; position:relative; float:left;overflow: hidden}
+.other_prize dd li .div{width:100%; height:38px; background-color:#ef92a5;opacity:0.5;filter:alpha(opacity=50);float:left; position:absolute; bottom:0;}
+.other_prize dd li p{ margin:0;width:190px; height:38px; line-height:38px; overflow:hidden;float:left; position:absolute; bottom:0; font-family:"微软雅黑", Arial; color:#FFF; z-index:99; text-align:center;}
+.other_prize_page{height:30px; line-height:30px; text-align:center;}
+.other_prize_page a{padding:2px 5px; text-decoration:none;font-family:"微软雅黑", Arial; font-size:12px;}
+.other_prize_page .on{background-color:#e9919f; color:#FFF; }
+.imgBox{float:left; display:block; height:185px !important; opacity:1 !important;}
+.imgBox2{float:left; display:block; height:150px !important; opacity:1 !important;}
+
+.imgBox{float:left; display:block; width:250px;height:185px !important; opacity:1 !important;!float:left; position:absolute; bottom:0;}
+.imgBox2{float:left; display:block; width:250px;height:150px !important; opacity:1 !important;float:left; position:absolute; bottom:0;}

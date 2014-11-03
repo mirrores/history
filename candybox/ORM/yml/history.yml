@@ -1,0 +1,129 @@
+options:
+  type: MYISAM
+
+History:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    name: string(50)
+    type: tinyint(1)
+    url: string(10)
+    order_num: smallint(6)
+    is_logo: tinyint(1)
+    
+HistoryDepart:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    name: string(50)
+    is_hidden: 
+          type: integer(4)
+          default: 0
+    
+HistoryCollege:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    name: string(50)
+    depart_id: integer(4)
+    is_hidden: 
+          type: integer(4)
+          default: 0
+  relations:
+    HistoryDepart:
+      local: depart_id
+      foreign: id
+      foreignAlias: HistoryDepart
+      
+      
+HistoryAlumni:
+         columns:
+             id:
+                 type: integer(4)
+                 primary: true
+                 autoincrement: true
+             content: string(500)
+             image: string(100) 
+             user_id: int(11)
+             create_date: timestamp
+             is_read: 
+                 type: integer(4)
+                 default: 0
+             is_implement: 
+                 type: integer(4)
+                 default: 0
+         relations:
+             User:
+                 class: User
+                 local: user_id
+                 foreign: id
+                 foreignAlias: User
+                 
+                 
+                 
+HistoryProfessional:
+        columns:
+            id:
+                type: integer(4)
+                primary: true
+                autoincrement: true
+            name: string(50)
+            college_id: integer(11)
+            depart_id: integer(11)
+            is_hidden: 
+                 type: integer(4)
+                 default: 0
+        relations:
+           HistoryCollege:
+            class: HistoryCollege
+            local: college_id
+            foreign: id
+            foreignAlias: HistoryCollege
+           HistoryDepart:
+             class: HistoryDepart
+             local: depart_id
+             foreign: id
+             foreignAlias: HistoryDepart
+             
+HistoryInfo:
+    columns:
+        id:
+            type: integer(4)
+            primary: true
+            autoincrement: true
+        name: string(50)
+        college_id: integer(4)
+        depart_id: integer(4)
+        grapheme: integer(4)
+        date: integer(4)
+        professional_id: integer(4)
+        content: string(500)
+        is_hidden: 
+          type: integer(4)
+          default: 0
+        create_date: timestamp
+    relations:
+        HistoryCollege:
+            class: HistoryCollege
+            local: college_id
+            foreign: id
+            foreignAlias: HistoryCollege
+        HistoryDepart:
+             class: HistoryDepart
+             local: depart_id
+             foreign: id
+             foreignAlias: HistoryDepart
+        HistoryProfessional:
+              class: HistoryProfessional
+              local: professional_id
+              foreign: id
+              foreignAlias: HistoryProfessional
+    
+   
+    

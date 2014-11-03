@@ -1,0 +1,21 @@
+#body{background: #E7F1FD; margin: 0 auto}
+#reg{ width: 950px; margin: 10px auto}
+#reg .reg_top{ height: 20px; background: url(../images/reg_box_bg.gif) no-repeat}
+#reg .reg_footer{ height: 30px; background: url(../images/reg_box_bg.gif) no-repeat 0 bottom}
+#reg .step{background: url(../images/reg_body_bg.gif) repeat-y; padding:5px 25px; color: #666; font-family: verdana}
+#reg .step span{ color: #0BAD07; font-weight: bold}
+#reg_body{background: url(../images/reg_body_bg.gif) repeat-y; padding:10px 25px;padding-bottom: 50px}
+#reg_body .left{ float: left; width: 550px; }
+.reg_tip{font-size:12px;color: #339900;padding-left:35px;margin: 15px 0}
+#reg .form{ margin: 10px 12px;font-size:14px; color: #333; width: 100%}
+#reg .form_row{ margin-bottom: 15px}
+#reg .form_label{ float: left; width: 100px; text-align: right; height: 27px; line-height: 29px;}
+#reg .must{ font-size: 12px; color: #f00}
+#reg .form_field{ float: left; width:400px; }
+#reg .msg{ color: #777; font-size:12px; width: 100% }
+#reg .ajax_msg_ok{ margin-left: 100px; background: url(../images/li_ok.gif) no-repeat; font-size:12px; color: #006600; padding-left: 20px}
+#reg .ajax_msg_error{ margin-left: 100px;}
+#reg_body .select_year{width:85px;padding:2px;border:1px solid #CCCCCC}
+#reg_body .right{ float:right;width: 300px; font-size: 14px; line-height: 1.6em; color: #777; padding-top: 30px; text-align: left}
+#reg_body .right h3{ color: #f00; margin-top: 0}
+#reg_body label{font-size:12px}

@@ -1,0 +1,319 @@
+options:
+  type: MYISAM
+
+Wedding:
+  columns:
+    id:
+      type: integer(6)
+      primary: true
+      autoincrement: true
+    year: integer(4)
+    title: string(80)
+    sign_start: timestamp
+    sign_finish: timestamp
+    sign_limit: integer(4)
+    start: timestamp
+    finish: timestamp
+    hits: integer(4)
+    publish_at: timestamp
+    banner_img: string(250)
+    photography_start: timestamp
+    photography_finish: timestamp
+    num:
+      type: integer(4)
+      default: 1
+    address: string(200)
+    content: string
+    intro: string(255)
+    is_closed:
+      type: boolean
+      default: false
+    is_stop_sign:
+      type: boolean
+      default: false
+    is_suspend:
+      type: boolean
+      default: false
+    is_recommended:
+      type: boolean
+      default: false
+    is_upload_photography:
+      type: boolean
+      default: false
+    comments_num:
+      type: integer(4)
+      default: 0
+    interested_num:
+      type: integer(4)
+      default: 0
+    open_lottery:
+      type: boolean
+      default: false
+    open_vote:
+      type: boolean
+      default: false
+    open_thinks:
+      type: boolean
+      default: false
+    open_cooperation:
+      type: boolean
+      default: false
+    open_photography:
+      type: boolean
+      default: false
+  relations:
+    User:
+      foreignAlias: Weddings
+
+# 活动报名表
+WeddingSign:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    wedding_id: integer(6)
+    user_id: integer(11)
+    bridegroom_name: string(50)
+    bridegroom_company: string(250)
+    bridegroom_email: string(250)
+    bridegroom_address: string(250)
+    bridegroom_mobile: string(250)
+    bridegroom_zipcode: string(250)
+    bridegroom_qq: string(20)
+    bride_name: string(50)
+    bride_company: string(250)
+    bride_email: string(250)
+    bride_address: string(250)
+    bride_mobile: string(250)
+    bride_qq: string(20)
+    bride_zipcode: string(250)
+    teacher_name: string(250)
+    teacher_department: string(250)
+    teacher_tel: string(250)
+    teacher_email: string(250)
+    teacher_reason: string(250)
+    said_alma_mater: string(250)
+    love_declaration: string
+    sign_at: timestamp
+    remarks: string
+    hits_num:
+      type: integer(4)
+      default: 0
+    votes_num:
+      type: integer(4)
+      default: 0
+    good_num:
+      type: integer(4)
+      default: 0
+    is_verify:
+      type: boolean
+      default: false
+    is_anonymous:
+      type: boolean
+      default: false
+    diploma_path: string(250)
+    marriage_certificate_path: string(250)
+    photo_path: string(250)
+  relations:
+    Wedding:
+      foreignAlias: WeddingSigns
+    User:
+      foreignAlias: WeddingSigns
+      
+# 集体婚礼赞助企业
+WeddingSponsors:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    wedding_id: integer(6)
+    category_id: integer(6)
+    product_name: string(50)
+    company_name: string(250)
+    logo_path: string(250)
+    product_path: string(250)
+    website: string(250)
+    created_at: timestamp
+    intro: string
+    hits_num:
+      type: integer(4)
+      default: 0
+    vote_num:
+      type: integer(4)
+      default: 0
+    order_num:
+      type: integer(4)
+      default: order_num
+    is_fixed:
+      type: boolean
+      default: false
+  relations:
+    Wedding:
+      local: wedding_id
+      foreign: id
+      foreignAlias: WeddingSponsors
+      
+# 报名投票
+WeddingVote:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    sign_id: integer(6)
+    sponsors_id: integer(6)
+    ip: string(50)
+    created_at: timestamp
+  relations:
+    WeddingSign:
+      local: sign_id
+      foreign: id
+      foreignAlias: WeddingVotes
+    WeddingSponsors:
+      local: sponsors_id
+      foreign: id
+      foreignAlias: WeddingVotes
+      
+# 祝福
+WeddingWish:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    wedding_id: integer(6)
+    user_id: integer(11)
+    is_closed:
+      type: boolean
+      default: false
+    content: string
+    created_at: timestamp
+  relations:
+    Wedding:
+      local: wedding_id
+      foreign: id
+      foreignAlias: WeddingWishs
+    User:
+      local: user_id
+      foreign: id
+      foreignAlias: WeddingWishs
+      
+# 抽奖
+WeddingLottery:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    title: string(100)
+    img_path: string(150)
+    wedding_id: integer(6)
+    event_id: integer(6)
+    award_probability: integer(6)
+    user_id: integer(11)
+    remark: string
+    start_date: timestamp
+    end_date: timestamp
+    created_at: timestamp
+  relations:
+    Wedding:
+      local: wedding_id
+      foreign: id
+      foreignAlias: WeddingLotterys
+    Event:
+      local: event_id
+      foreign: id
+      foreignAlias: WeddingLotterys
+    User:
+      local: user_id
+      foreign: id
+      foreignAlias: WeddingLotterys
+      
+# 抽奖奖项设置
+WeddingAwards:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    lottery_id: integer(6)
+    event_id: integer(6)
+    award_name: string(100)
+    prizes_name: string(150)
+    prizes_description: string
+    remark: string(150)
+    award_probability: integer(6)
+    amount: integer(6)
+    angle: integer(6)
+    has_been_drawn: integer(6)
+    created_at: timestamp
+  relations:
+    WeddingLottery:
+      local: lottery_id
+      foreign: id
+      foreignAlias: WeddingAwardss
+    Event:
+      local: event_id
+      foreign: id
+      foreignAlias: WeddingAwardss
+      
+WeddingLotteryResults:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    lottery_id: integer(6)
+    user_id: integer(11)
+    awards_id: integer(6)
+    lottery_results: string(150)
+    prizes_name: string(150)
+    lottery_date: timestamp
+    remark: string(250)
+  relations:
+    WeddingLottery:
+      local: lottery_id
+      foreign: id
+      foreignAlias: WeddingLotteryResultss
+    User:
+      local: user_id
+      foreign: id
+      foreignAlias: WeddingLotteryResultss
+      
+      
+# 摄影大赛
+WeddingPhotography:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    category: string(250)
+    wedding_id: integer(6)
+    title: string(250)
+    intro: string(250)
+    author: string(50)
+    email: string(150)
+    finish_year: string(150)
+    speciality: string(150)
+    tel: string(250)
+    qq: string(20)
+    img_path: string(150)
+    original_img_path: string(150)
+    img_size: integer(11)
+    address: string(150)
+    company: string(150)
+    user_id: integer(11)
+    award_name: string(150)
+    is_recommend:
+      type: boolean
+      default: false
+    intro: string
+    created_at: timestamp
+  relations:
+    Wedding:
+      local: wedding_id
+      foreign: id
+      foreignAlias: WeddingPhotographys

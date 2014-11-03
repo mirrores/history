@@ -1,0 +1,1412 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+ 
+	
+		<title>MooTools: DatePicker</title>
+		
+		<meta name="keywords" content="mootools, javascript, datepicker, calendar, animating">
+		<meta name="description" content="MooTools DatePicker: animating, skinnable javascript DatePicker with many options. 100% Javascript, no Ajax.">
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		
+		<!-- base href="http://www.monkeyphysics.com/" -->
+		
+				
+		<link rel="shortcut icon" href="http://www.monkeyphysics.com/img/favicon.png">
+		<link rel="alternate" title="MonkeyPhysics (Oo) RSS feed" type="application/rss+xml" href="http://www.monkeyphysics.com/rss">
+		
+		
+		<link rel="stylesheet" type="text/css" href="datepicker_files/monkey.css">
+		<link rel="stylesheet" type="text/css" href="datepicker_files/datepicker.css">
+		<link rel="stylesheet" type="text/css" href="datepicker_files/datepicker_dashboard.css">
+		<link rel="stylesheet" type="text/css" href="datepicker_files/datepicker_vista.css">
+		<link rel="stylesheet" type="text/css" href="datepicker_files/datepicker_jqui.css">
+		<script type="text/javascript" src="datepicker_files/bundle.js"></script>
+		
+	</head><body>
+		<div id="frame">
+
+			<div id="header" style="background-image: url(img/grass_night.jpg);">
+				<div id="topmenu">
+					<ul>
+						<li class="inactive"><a class="clean" href="http://www.monkeyphysics.com/articles">Articles</a></li><li class=""><a class="clean" href="http://www.monkeyphysics.com/mootools">MooTools</a></li>					</ul>
+				</div>
+				<div id="header_image"><a href="" class="clean">MonkeyPhysics (oO)</a></div>
+			</div>
+			
+			<div id="content">
+				
+				<div id="main">
+					<h1>MooTools DatePicker</h1><div class="subtitle">Version 1.16</div>Smoothly animating and very configurable. No Ajax - pure Javascript.<br>
+Will work for any date-format and even supports time-picking.<br>
+4 skins ready for download, and it's easy to skin it yourself.<br>
+<br>
+(I just tried to create the best javascript datepicker available)<br><div class="paragraph">Show me <a href="http://www.monkeyphysics.com/mootools/script/2/datepicker#examples">some demo's</a></div><h3>License</h3>You can freely use this work - but <a class="external" href="http://creativecommons.org/licenses/by-sa/3.0/">some rights</a> are reserved.<h3>Downloads</h3><div style="margin-bottom: 5px;">There
+are two downloads available, the original source file and a minified
+version ready for deployment. Most likely you will just want to use the
+script without looking at its internals - get the minified version.</div>» <a href="http://www.monkeyphysics.com/mootools/download/jsmin/2/datepicker.js">Minified</a> (for production)<br>» <a href="http://www.monkeyphysics.com/mootools/download/src/2/datepicker.js">Source code</a> (for development)<h3>Additional downloads</h3>» <a href="http://www.monkeyphysics.com/mootools/fetch/4/datepicker.css">Basic Skin - CSS only</a><br>» <a href="http://www.monkeyphysics.com/mootools/fetch/1/datepicker_vista.zip">Vista Skin - CSS &amp; Images</a><br>» <a href="http://www.monkeyphysics.com/mootools/fetch/2/datepicker_dashboard.zip">OSX Dashboard Skin - CSS &amp; Images</a><br>» <a href="http://www.monkeyphysics.com/mootools/fetch/3/datepicker_jqui.zip">jQuery UI Skin - CSS &amp; Images</a><br><br>
+Try the examples at the bottom of this page to check out the different skins!
+<h3>GitHub</h3>
+I am using a <a class="external" href="http://github.com/monkeyphysics/mootools-datepicker/tree/master">Git repository</a> for code management. Feel free to contribute.<br>
+<h3>Requirements</h3>
+Requires MooTools Core v1.2+<br>
+<br>
+Tested on Firefox 3 (OSX, Win XP, Win Vista), Safari 3 (OSX, Win XP),
+Safari 4 beta (OSX), IE 7 (Win XP, Win Vista), IE 8 (Vista) and even
+IE6 (XP @ VirtualPC). Please help extend this list.
+<h3>Usage</h3>
+<pre>new DatePicker(input-target-selector [, options-object]);</pre>
+where the input-target-selector naturally is a MooTools selector (eg. <u>.datepickers</u> or <u>#great_picker</u>). The datepicker will be effective for all selected input elements. Usage examples are given at the bottom of this document.
+<h3>Usage with Ajax</h3>
+When loading content by Ajax after creating the DatePicker instance, simply re-scan the DatePicker targets by calling <u>attach()</u>, for example:
+<pre>my_datepicker.attach();</pre>
+<h3>Using the Skins</h3>
+Just include the CSS file of a skin, and specify the datepicker class (<u>pickerClass</u>)
+through your datepicker options. I recommend putting all skin files in
+one subfolder on your filesystem. Since image-locations are stored as
+relative paths in CSS, the images will work out of the box.<br><h3>Options</h3><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><th>Option</th><th>Default&nbsp;value</th><th>Description</th></tr><tr><td><u>pickerClass</u></td><td>datepicker</td><td>CSS class for the main datepicker container element.</td></tr><tr><td><u>toggleElements</u></td><td>null</td><td>Toggle
+your datepicker by clicking another element. Specify as a MooTools
+selector. The resulting elements are mapped to the selected datepickers
+by index (the 1st toggle works for the 1st input, the 2nd toggle works
+for the 2nd input, etc.)<br></td></tr><tr><td><u>days</u></td><td>['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']</td><td><p>Labels for the days, allows for localization.</p></td></tr><tr><td><u>dayShort</u></td><td>2</td><td>Length of day-abbreviations used in the datepicker.</td></tr><tr><td><u>months</u></td><td>['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']</td><td><p>Labels for the months, allows for localization.</p></td></tr><tr><td><u>monthShort</u></td><td>3</td><td>Length of month-abbreviations used in the datepicker.</td></tr><tr><td><u>startDay</u></td><td>1</td><td>First day of a week. Can be <u>0</u> (Sunday) through <u>6</u> (Saturday) - be aware that this may affect your layout, since days in the last column will likely have a style with <u>right-margin: 0px;</u>which would need to be applied to a different day. Default value <u>1</u> is Monday.</td></tr><tr><td><u>timePicker</u></td><td>false</td><td><p>Enable/disable
+timepicker functionality. See timepicker example below. Hours/Minutes
+values can be changed using the scrollwheel.</p></td></tr><tr><td><u>timePickerOnly</u></td><td>false</td><td>(v1.16+) set to <u>true</u> to use datepicker for time-selection only; recommended <u>format</u>is <u>H:i</u>; will automatically force <u>timePicker</u> and <u>startView</u> options into timepicker mode</td></tr><tr><td><u>yearPicker</u></td><td>true</td><td><p>Enable/disable yearpicker functionality. Makes it much easier to change years.</p></td></tr><tr><td><u>yearsPerPage</u></td><td>20</td><td><p>Amount of years to show in the year-picking view. Be aware that this may affect your layout.</p></td></tr><tr><td><u>format</u></td><td>d-m-Y</td><td>Visible date format. Does not affect the actual output when your <u>form</u> is submitted (refer to the <u>inputOutputFormat</u> for that). Supported format symbols are described in the "Dateformatting" section.</td></tr><tr><td><u>inputOutputFormat</u></td><td>U</td><td>Define
+how the input value of the original datepicker input element is
+interpreted. After selecting a date, it's value will be again formatted
+in this format. Refer to the "input/output format" example.<br>
+<br>
+The default value <u>U</u> is a Unix-timestamp. Supported format
+symbols are described in the "Dateformatting" section. For example: to
+use MySQL dates 1-on-1 simply&nbsp;set <u>Y/m/d</u>.<br>
+<br>
+If you encounter problems with your formatting, try enabling the <u>debug</u> option, it will alert date-parsing errors.</td></tr><tr><td><u>animationDuration</u></td><td>400</td><td>Duration of the slide/fade animations in milliseconds.</td></tr><tr><td><u>useFadeInOut</u></td><td>true (false on Internet Explorer)</td><td><p>Whether to fade-in/out the datepicker popup.</p></td></tr><tr><td><u>startView</u></td><td>month</td><td>Initial view of the datepicker. Allowed values are: <u>time</u>(only when <u>timePicker</u> option is <u>true</u>), <u>month</u>,<u>year</u>, <u>decades</u></td></tr><tr><td><u>allowEmpty</u></td><td>false</td><td>When set to <u>true</u>
+the datepicker intializes empty when no value was set (instead of
+starting at today). In addition the backspace- and delete-key will
+remove a value from the input. Check out the <em>Allow empty</em> example below.<br></td></tr><tr><td><u>positionOffset</u></td><td>{ x: 0, y: 0 }</td><td>Allows you to tweak the position at which the datepicker appears, relative to the input element. Formatted as an object with <u>x</u> and <u>y</u> properties. Values can be negative.<br></td></tr><tr><td><u>minDate</u></td><td>null</td><td>Minimum date allowed to pick. Blocks anything before. Formatted as an object with a <u>date</u> and <u>format</u> property, which allows specification in any format you want. Example: <u>{ date: '10-03-2009', format: 'd-m-Y' }</u> or <u>{ date: '2009/11/28', format: 'Y/m/d' }</u></td></tr><tr><td><u>maxDate</u></td><td>null</td><td>Maximum date allowed to pick. See <u>minDate</u>.</td></tr><tr><td><u>debug</u></td><td>false</td><td>When enabled, will not hide the original input element. Additionally, any formatting errors will be alerted to the user.</td></tr><tr><td><u>onShow</u></td><td>$empty</td><td>Event hook triggered when the datepicker pops up.</td></tr><tr><td><u>onClose</u></td><td>$empty</td><td>Event hook triggered after the datepicker is closed (destroyed).</td></tr><tr><td><u>onSelect</u></td><td>$empty</td><td>Event hook triggered when a date is selected.<br>
+(v1.16+: comes with 1 argument, a standard javascript Date object representing the selected Date)<br></td></tr></tbody></table><h3>Requested/planned features</h3>
+<ul>
+    <li>Support for date-range picking</li>
+    <li>Prepare for MooTools 1.3 (2.0?) (personal todo)</li>
+</ul>
+<h3>Date-formatting</h3>
+<p>The date-formatting functions featured in the DatePicker support <a class="external" href="http://www.php.net/date">basic PHP date-format</a>
+syntax. Supported symbols are listed below. Unsupported symbols will
+just be output as provided. To use the supported symbols literally,
+escape them with a <u>\</u>.</p>
+<ul>
+    <li><u>y</u> - Two digit representation of a year</li>
+    <li><u>Y</u> - Four digit representation of a year</li>
+    <li><u>m</u> - Numeric representation of a month, with leading zeros</li>
+    <li><u>n</u> - Numeric representation of a month, without leading zeros</li>
+    <li><u>M</u> - A short textual representation of a month, three letters</li>
+    <li><u>F</u> - A full textual representation of a month, such as January or March</li>
+    <li><u>d</u> - Day of the month, 2 digits with leading zeros</li>
+    <li><u>j</u> - Day of the month without leading zeros</li>
+    <li><u>D</u> - A textual representation of a day, three letters</li>
+    <li><u>l</u> - A full textual representation of the day of the week</li>
+    <li><u>G</u> - 24-hour format of an hour without leading zeros</li>
+    <li><u>H</u> - 24-hour format of an hour with leading zeros</li>
+    <li><u>g</u> - 12-hour format of an hour without leading zeros</li>
+    <li><u>h</u> - 12-hour format of an hour with leading zeros</li>
+    <li><u>a</u> - Lowercase Ante meridiem and Post meridiem</li>
+    <li><u>A</u> - Uppercase Ante meridiem and Post meridiem</li>
+    <li><u>i</u> - Minutes with leading zeros</li>
+    <li><u>s</u> - Seconds, with leading zeros</li>
+    <li><u>U</u> - Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)</li>
+</ul>
+<h3>Creating your own skin</h3>
+The Datepicker generates very clean XHTML, with many class-hooks for
+CSS. Refer to the existing skins for a speed-start. Some notes:
+<ul>
+    <li>The <u>previous</u>, <u>next</u> and <u>close</u> elements have textual contents (<u>«</u>, <u>»</u>, <u>x</u>) by default; as done in the additional skins, these can be hidden using (for example) <u>text-indent: -999px</u> style</li>
+    <li>The <u>body</u>
+element has 1 unclassed child, which in turn has 2 unclassed children.
+These are used for animation, and should be ignored. Their styles are
+based on the <u>body</u> class and should have no influence on the
+rendering of your datepicker. Just imagine the body element directly
+contains either the <u>years</u>, <u>months</u>, <u>days</u> or <u>time</u> class.</li>
+    <li>The class <u>selected</u> is added to the date/month/year representing the current value.</li>
+    <li>The class <u>unavailable</u> is added to any date/month/year which is outside the configured range (using the <u>minDate</u> and <u>maxDate</u> options).</li>
+    <li>Every <u>day</u> element also has a <u>day0</u> ... <u>day6</u> class added, indicating which day of the week it is (0 being Sunday through 6 being Saturday).</li>
+    <li>Every <u>week</u> element also has a <u>week0</u> ... <u>week5</u> class added, indicating which&nbsp;row of weeks it is&nbsp;(there is always 6 weeks displayed).</li>
+    <li>Every <u>month</u> element also has a <u>month1</u> ... <u>month12</u> class added, indicating which month of the year it is.</li>
+    <li>Every <u>year</u> element also has a <u>yearX</u> class added, where <u>X</u> simply is the index of the displayed year (0 being the first year).</li>
+</ul><script type="text/javascript" src="datepicker_files/datepicker.js"></script><a name="examples"></a><h2 class="inline">Examples</h2><h3>Skins</h3>Some basic examples, showing the use of different skins.<br><br><label>Datepicker with Vista skin:</label>
+<input style="display: none;" name="date_B" class="date demo_vista" type="text"><input value="13-01-2010" style="display: block;" class="date demo_vista" type="text">
+
+<label>Datepicker with OSX Dashboard skin:</label>
+<input style="display: none;" name="date_B" value="452486927" class="date demo_dashboard" type="text"><input value="04-05-1984" style="display: block;" class="date demo_dashboard" type="text">
+
+<label>Datepicker with jQuery UI skin:</label>
+<input style="display: none;" name="date_B" class="date demo_jqui" type="text"><input value="13-01-2010" style="display: block;" class="date demo_jqui" type="text">
+
+<label>Datepicker basic (CSS only):</label>
+<input style="display: none;" name="date_B" class="date demo" type="text"><input value="13-01-2010" style="display: block;" class="date demo" type="text"><style type="text/css">input.date {
+	width: 150px;
+	color: #000;
+}</style><script type="text/javascript">window.addEvent('load', function() {
+	new DatePicker('.demo_vista', { pickerClass: 'datepicker_vista' });
+	new DatePicker('.demo_dashboard', { pickerClass: 'datepicker_dashboard' });
+	new DatePicker('.demo_jqui', { pickerClass: 'datepicker_jqui', positionOffset: { x: 0, y: 5 } });
+	new DatePicker('.demo', { positionOffset: { x: 0, y: 5 }});
+});</script><br><a href="#" class="view_code">» view code</a><div style="margin: 0px; overflow: hidden; position: static; height: 612px;"><div style="margin: 0px;" class="code"><h3>Javascript</h3><pre>window.addEvent('load', function() {
+	new DatePicker('.demo_vista', { pickerClass: 'datepicker_vista' });
+	new DatePicker('.demo_dashboard', { pickerClass: 'datepicker_dashboard' });
+	new DatePicker('.demo_jqui', { pickerClass: 'datepicker_jqui', positionOffset: { x: 0, y: 5 } });
+	new DatePicker('.demo', { positionOffset: { x: 0, y: 5 }});
+});</pre><h3>HTML</h3><pre>&lt;label&gt;Datepicker with Vista skin:&lt;/label&gt;
+&lt;input name='date_B' type='text' value='' class='date demo_vista' /&gt;
+
+&lt;label&gt;Datepicker with OSX Dashboard skin:&lt;/label&gt;
+&lt;input name='date_B' type='text' value='' class='date demo_dashboard' /&gt;
+
+&lt;label&gt;Datepicker with jQuery UI skin:&lt;/label&gt;
+&lt;input name='date_B' type='text' value='' class='date demo_jqui' /&gt;
+
+&lt;label&gt;Datepicker basic (CSS only):&lt;/label&gt;
+&lt;input name='date_B' type='text' value='' class='date demo' /&gt;</pre><h3>CSS</h3><pre>input.date {
+	width: 150px;
+	color: #000;
+}</pre><div class="paragraph">&nbsp;</div></div></div><h3>Yearpicking / Timepicking</h3>Two examples that show how you can enable or disable yearpicking and timepicking.<br><br><label>Datepicker without yearpicker:</label>
+<input style="display: none;" name="date_B" class="date demo_noyear" type="text"><input value="13-01-2010" style="display: block;" class="date demo_noyear" type="text">
+
+<label>Datepicker with timepicker (use mousewheel to change time):</label>
+<input style="display: none;" name="date_B" class="date demo_time" type="text"><input value="13-01-2010 @ 10:48" style="display: block;" class="date demo_time" type="text"><style type="text/css"></style><script type="text/javascript">window.addEvent('load', function() {
+	new DatePicker('.demo_noyear', { pickerClass: 'datepicker_vista', yearPicker: false });
+	new DatePicker('.demo_time', { pickerClass: 'datepicker_vista', timePicker: true, format: 'd-m-Y @ H:i' });
+});</script><br><a href="#" class="view_code">» view code</a><div style="margin: 0px; overflow: hidden; position: static; height: 0px;"><div style="margin: -339px 0px 0px;" class="code"><h3>Javascript</h3><pre>window.addEvent('load', function() {
+	new DatePicker('.demo_noyear', { pickerClass: 'datepicker_vista', yearPicker: false });
+	new DatePicker('.demo_time', { pickerClass: 'datepicker_vista', timePicker: true, format: 'd-m-Y @ H:i' });
+});</pre><h3>HTML</h3><pre>&lt;label&gt;Datepicker without yearpicker:&lt;/label&gt;
+&lt;input name='date_B' type='text' value='' class='date demo_noyear' /&gt;
+
+&lt;label&gt;Datepicker with timepicker (use mousewheel to change time):&lt;/label&gt;
+&lt;input name='date_B' type='text' value='' class='date demo_time' /&gt;</pre><div class="paragraph">&nbsp;</div></div></div><h3>Allow empty</h3>Allowing no value by setting the <u>allowEmpty</u> option to <u>true</u>. Press backspace or delete to clear the selected date again.<br><br><label>Datepicker starting at and allowing no value:</label>
+<input style="display: none;" name="date_allow_empty" class="date demo_allow_empty" type="text"><input style="display: block;" class="date demo_allow_empty" type="text"><style type="text/css"></style><script type="text/javascript">window.addEvent('load', function() {
+	new DatePicker('.demo_allow_empty', {
+		pickerClass: 'datepicker_dashboard',
+		allowEmpty: true
+	});
+});</script><br><a href="#" class="view_code">» view code</a><div style="margin: 0px; overflow: hidden; position: static; height: 323px;"><div style="margin: 0px;" class="code"><h3>Javascript</h3><pre>window.addEvent('load', function() {
+	new DatePicker('.demo_allow_empty', {
+		pickerClass: 'datepicker_dashboard',
+		allowEmpty: true
+	});
+});</pre><h3>HTML</h3><pre>&lt;label&gt;Datepicker starting at and allowing no value:&lt;/label&gt;
+&lt;input name='date_allow_empty' type='text' value='' class='date demo_allow_empty' /&gt;</pre><div class="paragraph">&nbsp;</div></div></div><h3>Toggle by Element</h3>Toggle the DatePicker through a separate element. Click the calendar icon.<br><br><input name="date_toggled" value="asdasd" class="date date_toggled" style="display: none;" type="text"><input value="asdasd" class="date date_toggled" style="display: inline;" type="text">
+<img src="datepicker_files/calendar.gif" class="date_toggler" style="position: relative; top: 3px; margin-left: 4px; cursor: pointer;"><style type="text/css"></style><script type="text/javascript">window.addEvent('load', function() {
+	new DatePicker('.date_toggled', {
+		pickerClass: 'datepicker_dashboard',
+		allowEmpty: true,
+		toggleElements: '.date_toggler'
+	});
+});</script><br><a href="#" class="view_code">» view code</a><div style="margin: 0px; overflow: hidden; position: static; height: 339px;"><div style="margin: 0px;" class="code"><h3>Javascript</h3><pre>window.addEvent('load', function() {
+	new DatePicker('.date_toggled', {
+		pickerClass: 'datepicker_dashboard',
+		allowEmpty: true,
+		toggleElements: '.date_toggler'
+	});
+});</pre><h3>HTML</h3><pre>&lt;input name='date_toggled' type='text' value='' class='date date_toggled' style='display: inline' /&gt;
+&lt;img src='img/calendar.gif' class='date_toggler' style='position: relative; top: 3px; margin-left: 4px;' /&gt;</pre><div class="paragraph">&nbsp;</div></div></div><h3>Restricted date-range</h3><p>An example showing how you can restrict the input range of dates.</p><br><label>Datepicker restricted to dates between 10-03-2009 and 25-06-2009:</label>
+<input style="display: none;" name="date_B" value="20-03-2009" class="date demo_ranged" type="text"><input value="20-03-2009" style="display: block;" class="date demo_ranged" type="text"><style type="text/css"></style><script type="text/javascript">window.addEvent('load', function() {
+	new DatePicker('.demo_ranged', {
+		pickerClass: 'datepicker_vista',
+		inputOutputFormat: 'd-m-Y',
+		yearPicker: false,
+		minDate: { date: '10-03-2009', format: 'd-m-Y' },
+		maxDate: { date: '25-06-2009', format: 'd-m-Y' }
+	});
+});</script><br><a href="#" class="view_code">» view code</a><div style="margin: 0px; overflow: hidden; position: static; height: 0px;"><div style="margin: -369px 0px 0px;" class="code"><h3>Javascript</h3><pre>window.addEvent('load', function() {
+	new DatePicker('.demo_ranged', {
+		pickerClass: 'datepicker_vista',
+		inputOutputFormat: 'd-m-Y',
+		yearPicker: false,
+		minDate: { date: '10-03-2009', format: 'd-m-Y' },
+		maxDate: { date: '25-06-2009', format: 'd-m-Y' }
+	});
+});</pre><h3>HTML</h3><pre>&lt;label&gt;Datepicker restricted to dates between 10-03-2009 and 25-06-2009:&lt;/label&gt;
+&lt;input name='date_B' type='text' value='20-03-2009' class='date demo_ranged' /&gt;</pre><div class="paragraph">&nbsp;</div></div></div><h3>Starting value (input/output value)</h3><p>These examples show how you can set the starting value by simply putting it in your original <u>value</u> tag. Additionally, you may use the option <u>inputOutputFormat</u> to specify how to interpret this value, and how it will be output again after picking a date.<br>
+<br>
+<strong>Please note:</strong> The <u>debug</u> option is enabled which
+will show you the original input and its actual value (the first input
+element), which is normally hidden. The second input element is the
+datepicker.</p><br><label>Datepicker starting at Unix-timestamp 1234567890 (14th of Februari 2009):</label>
+<input style="display: block;" name="date_B" value="1234567890" class="date demo_value" type="text"><input value="14-02-2009" style="display: block;" class="date demo_value" type="text">
+
+<label>Datepicker starting at 2009/06/24 (to read as 'Y/m/d'):</label>
+<input style="display: block;" name="date_B" value="2009/06/24" class="date demo_value2" type="text"><input value="24-06-2009" style="display: block;" class="date demo_value2" type="text"><style type="text/css"></style><script type="text/javascript">window.addEvent('load', function() {
+	new DatePicker('.demo_value', {
+		pickerClass: 'datepicker_jqui',
+		debug: true
+	});
+
+	new DatePicker('.demo_value2', {
+		pickerClass: 'datepicker_jqui',
+		inputOutputFormat: 'Y/m/d',
+		debug: true
+	});
+});
+</script><br><a href="#" class="view_code">» view code</a><div style="margin: 0px; overflow: hidden; position: static; height: 462px;"><div style="margin: 0px;" class="code"><h3>Javascript</h3><pre>window.addEvent('load', function() {
+	new DatePicker('.demo_value', {
+		pickerClass: 'datepicker_jqui',
+		debug: true
+	});
+
+	new DatePicker('.demo_value2', {
+		pickerClass: 'datepicker_jqui',
+		inputOutputFormat: 'Y/m/d',
+		debug: true
+	});
+});
+</pre><h3>HTML</h3><pre>&lt;label&gt;Datepicker starting at Unix-timestamp 1234567890 (14th of Februari 2009):&lt;/label&gt;
+&lt;input name='date_B' type='text' value='1234567890' class='date demo_value' /&gt;
+
+&lt;label&gt;Datepicker starting at 2009/06/24 (to read as 'Y/m/d'):&lt;/label&gt;
+&lt;input name='date_B' type='text' value='2009/06/24' class='date demo_value2' /&gt;</pre><div class="paragraph">&nbsp;</div></div></div><h3>Localized Month/Day labels</h3><p>This example shows how simple it is to change the month/day labels in another language.</p><br><label>Datepicker with Dutch labels:</label>
+<input style="display: none;" name="date_B" class="date demo_dutch" type="text"><input value="13-01-2010" style="display: block;" class="date demo_dutch" type="text"><style type="text/css"></style><script type="text/javascript">window.addEvent('load', function() {
+	new DatePicker('.demo_dutch', {
+		pickerClass: 'datepicker_dashboard',
+		days: ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag'],
+		months: ['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'October', 'November', 'December']
+	});
+});</script><br><a href="#" class="view_code">» view code</a><div style="margin: 0px; overflow: hidden; position: static; height: 0px;"><div style="margin: -339px 0px 0px;" class="code"><h3>Javascript</h3><pre>window.addEvent('load', function() {
+	new DatePicker('.demo_dutch', {
+		pickerClass: 'datepicker_dashboard',
+		days: ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag'],
+		months: ['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'October', 'November', 'December']
+	});
+});</pre><h3>HTML</h3><pre>&lt;label&gt;Datepicker with Dutch labels:&lt;/label&gt;
+&lt;input name='date_B' type='text' value='' class='date demo_dutch' /&gt;</pre><div class="paragraph">&nbsp;</div></div></div><br><a name="comments"></a><div class="comments"><a class="slide_handle" rel="add_comment_form" id="add_comment" href="http://www.monkeyphysics.com/mootools/script/2/datepicker#comments">Add comment</a><h2 class="title">Comments  <span style="font-size: 50%;">(130)</span></h2><div style="margin: 15px 0px 0px; overflow: hidden; position: static; height: 0px;"><form style="margin: -395px 0px 0px;" id="add_comment_form" method="post" action="/mootools/script/2/datepicker#comments"><div><label>Your name:</label><input name="author" type="text"><label>Your email: <span style="color: rgb(153, 153, 170);">(optional, never published - allows me to contact you)</span></label><input name="email" type="text"><label>Your comment:</label><textarea name="comment" rows="8" cols="100"></textarea><label>Please type the word » <strong>light</strong> « below, this is against spam:</label><input name="human" title="" type="text"><input name="xx_val_true" value="light" type="hidden"><div class="paragraph"><input value="Add comment" type="submit"></div></div></form></div><a name="comment_14"></a><div class="comment"><em class="date">16-04-2009, 15:00</em><div class="author">Cristi</div><div class="text">simply awesome!</div></div><a name="comment_15"></a><div class="comment"><em class="date">16-04-2009, 17:08</em><div class="author">httpwebwitch</div><div class="text">this
+is fantastic. There are many other mootools datepickers out there that
+I've tried, but this one seems the most promising for my current
+project. U have saved me many many hours of work. Thank you!!</div></div><a name="comment_16"></a><div class="comment"><em class="date">16-04-2009, 18:28</em><div class="author">jarrod</div><div class="text">My favorite yet.  I'll be trying it out and making it work with cakephp.</div></div><a name="comment_37"></a><div class="comment"><em class="date">14-05-2009, 10:05</em><div class="author">Mikko</div><div class="text">Best date/time picker I've come across by far. Too bad I'm restricted to jQuery in my current project =(</div></div><a name="comment_38"></a><div class="comment"><em class="date">14-05-2009, 11:03</em><div class="author">Martin Blapp</div><div class="text">Hi,<br>
+<br>
+I tried to get the DatePicker running with FormCheck, but was not
+successfull. Standalone (without your code) FormCheck worked, but with
+your DatePicker, FormCheck didn't work anymore.<br>
+I tracked this down to FormCheck also doing validation on the original
+input field (even though set to "display: none"). I fixed this by
+modifying FormCheck not to validate elements that are "display: none".<br>
+--<br>
+Martin</div></div><a name="comment_41"></a><div class="comment"><em class="date">16-05-2009, 17:31</em><div class="author">Aaron Dixon</div><div class="text">This
+is a great tool. It works wonderfully and is the best I have found for
+any of the major JS frameworks. Have you thought about trying to get
+this added to the official More build of MooTools?</div></div><a name="comment_42"></a><div class="comment"><em class="date">17-05-2009, 13:39</em><div class="author">Matthew Higgins</div><div class="text">I love this, I really do!</div></div><a name="comment_43"></a><div class="comment"><em class="date">19-05-2009, 00:08</em><div class="author">Riad Marrakech</div><div class="text">thanks for sharing, very awsome</div></div><a name="comment_45"></a><div class="comment"><em class="date">19-05-2009, 23:06</em><div class="author">Roark</div><div class="text">Great script, and very usefull.<br>
+<br>
+Second time I have needed a datepicker and timepicker in one. Thank you very much.<br>
+<br>
+Is there a way to set the value of the field to a specific timestamp? so if I check a check box somewhere:<br>
+var picker = new DatePicker('.demo_vista', { pickerClass: 'datepicker_vista', timePicker: true, format: 'Y-m-d H:i:s' });<br>
+//var started is the checkbox;<br>
+started.addEvent('change', function() {<br>
+   usertime.set('value', '1242763047');<br>
+});</div></div><a name="comment_46"></a><div class="comment"><em class="date">27-05-2009, 15:01</em><div class="author">Fábio M. Costa</div><div class="text">Thats a really cool and well made script.<br>
+Great documentation too.<br>
+</div></div><a name="comment_53"></a><div class="comment"><em class="date">06-06-2009, 10:37</em><div class="author">Jasper</div><div class="text">i'd
+like to see simple keyboard support too (using the arrow keys to select
+a date and then press enter to use the selected date).<br>
+<br>
+Maybe in the future ? :-)</div></div><a name="comment_59"></a><div class="comment"><em class="date">12-06-2009, 21:21</em><div class="author">Jason Beaudoin</div><div class="text">Ok.
+I made some modifications that allows for the separation of the Year
+and the Month. The month go to the year menu (to pick a month) and the
+year title that links directly to the decades menu. Also has some other
+changes. See:
+http://www.coldfiredesigns.com/wiki/wikka.php?wakka=mooDatePicker for
+complete info and download for those who like it's functionality.</div></div><a name="comment_60"></a><div class="comment"><em class="date">16-06-2009, 20:40</em><div class="author">Mahee</div><div class="text">Hi , this looks so cool, u rocks</div></div><a name="comment_61"></a><div class="comment"><em class="date">17-06-2009, 12:29</em><div class="author">kıvanc</div><div class="text">Thanks for great script.</div></div><a name="comment_64"></a><div class="comment"><em class="date">19-06-2009, 01:22</em><div class="author">Uwe Duesing</div><div class="text">Very, very nice. Thanks a lot for your time and effort.</div></div><a name="comment_69"></a><div class="comment"><em class="date">30-06-2009, 16:25</em><div class="author">Treur</div><div class="text">Hi,<br>
+<br>
+Is there a way to set the date via javascript? I tried the
+DatePicker.select method, but this doesn't work if the date input
+hasn't had focus. The onFocus event sets the this.input and this.vsiual
+properties which are used in the select method.</div></div><a name="comment_70"></a><div class="comment"><em class="date">05-07-2009, 16:57</em><div class="author">Cyrille</div><div class="text">The
+way I did it was this, assuming cal is the reference to the DatePicker
+object, and $('myinput') the input control in my HTML page.<br>
+<br>
+var val ='2009-07-05' ;<br>
+var formatted_val =cal.format (<br>
+  new Date (cal.unformat (val, cal.options.inputOutputFormat)),<br>
+  cal.options.format<br>
+) ;<br>
+$('myinput').value =val  ;<br>
+$('myinput').getNext ().value =formatted_val  ;<br>
+<br>
+Hope that helps,</div></div><a name="comment_73"></a><div class="comment"><em class="date">06-07-2009, 11:24</em><div class="author">Treur</div><div class="text">@Cyrille<br>
+I used a similar workaround, but the getNext() increases the coupling
+with the DOM. If the position of the sibling element in the DOM changes
+somehow (which is not unthinkable imho) you're screwed. I was really
+looking for a somewhat more elegant solutions, but couldn't found one
+without some serious refactoring of the DatePicker class.</div></div><a name="comment_76"></a><div class="comment"><em class="date">13-07-2009, 18:22</em><div class="author">Matt L</div><div class="text">Has
+anyone had a problem with this in Internet Explorer 6 coming up under
+'select' tags? And if so, any solution beyond hiding the selects?</div></div><a name="comment_77"></a><div class="comment"><em class="date">13-07-2009, 19:29</em><div class="author">Monkey</div><div class="text">@Matt:
+you will have to hide the selects, but can perfectly use the onShow and
+onClose events for that. Something like this in your options will work
+(and only affects IE6):<br>
+<br>
+onShow: function() {<br>
+  if (Browser.Engine.trident4) $$('select').setStyle('visibility', 'hidden');<br>
+}<br>
+<br>
+onClose: function() {<br>
+  if (Browser.Engine.trident4) $$('select').setStyle('visibility', '');<br>
+}<br>
+<br>
+I consider making this part of the official release. Any thoughts?</div></div><a name="comment_78"></a><div class="comment"><em class="date">13-07-2009, 19:54</em><div class="author">Matt L</div><div class="text">@Monkey:<br>
+<br>
+Right, that seems good, I just worry about the users being frightened
+that the inputs are disappearing. I ended up just moving it to the
+right which will do for now. Mostly, I will try to convince them to
+upgrade their browser.<br>
+<br>
+I think you could add it in to the next release, but as an option not as a default.<br>
+<br>
+Thanks so much for your help,<br>
+Matt</div></div><a name="comment_79"></a><div class="comment"><em class="date">17-07-2009, 01:29</em><div class="author">Mobilla</div><div class="text">@Matt: You could use the iframshim from mootools.more instead of moving it, or hiding the select boxes.<br>
+<br>
+datepicker = new DatePicker(".datefield",{ pickerClass: 'datepicker_vista', startDay: 0,<br>
+onShow:function(){<br>
+    datepicker.IframeShim = new IframeShim(datepicker.picker).show();<br>
+},onClose:function(){<br>
+    datepicker.IframeShim.destroy();<br>
+}<br>
+});</div></div><a name="comment_80"></a><div class="comment"><em class="date">27-07-2009, 09:09</em><div class="author">phil doughty</div><div class="text">way sweeeeeeeet!!!</div></div><a name="comment_81"></a><div class="comment"><em class="date">28-07-2009, 20:29</em><div class="author">Nigel Holder</div><div class="text">Great calendar - if it had week number with hours (24 hour format) and minutes that would be so sweet: 24HH:MM.<br>
+<br>
+A Calendar I'd so much like to match with mootools is here:<br>
+<br>
+http://www.jboss.org/file-access/default/members/jbossrichfaces/freezone/docs/devguide/en/html/rich_calendar.html<br>
+<br>
+I'd like to add this functionality if you are too busy?</div></div><a name="comment_82"></a><div class="comment"><em class="date">29-07-2009, 00:45</em><div class="author">Nigel Holder</div><div class="text">The more I use this date picker the more I like it - it easily exceeds what I have been waiting for!<br>
+<br>
+By the way: I wasn't suggesting matching the whole functionality of the
+jBoss date picker in my previous posting; simply the week number).</div></div><a name="comment_83"></a><div class="comment"><em class="date">29-07-2009, 06:44</em><div class="author">httpwebwitch</div><div class="text">Hey,
+does anyone know how to dynamically change the "minDate" setting of a
+calendar, so I can prevent people from choosing a date set... by
+another date picker?<br>
+<br>
+so, if I have two of them, I could hook them together so dateA is always before dateB<br>
+<br>
+thanks for sharing this, it's one of the best pickers I've tried (and I've tried LOTS)</div></div><a name="comment_87"></a><div class="comment"><em class="date">31-07-2009, 19:45</em><div class="author">Greg</div><div class="text">The
+tool is great but one thing I can't figure out is how to force the
+pop-up calendar to always appear on the visible portion of the window.
+For example if the date entry field happens to be at the bottom of the
+viewable part of the page the calendar appears out of view. If the user
+scrolls down the calendar disappears. It would be very handy for it to
+always appear where it can be seen by the user.</div></div><a name="comment_90"></a><div class="comment"><em class="date">03-08-2009, 23:36</em><div class="author">Bernardo</div><div class="text">Hi:<br>
+Excelent script! Works like a charm.<br>
+I've been trying to set te minDate propertie of an input acording to
+the selected date of another. For example, to pick the check in and
+check out dates of a hotel. For example, if I pick 2009-08-08 for the
+check in, automatically set that date as the minDate for the checkOut
+(maybe, plus X days).<br>
+I've been trying with the onShow or onClose events, but I can't make it works. Could you help me?<br>
+Thanks in advance :)</div></div><a name="comment_91"></a><div class="comment"><em class="date">04-08-2009, 09:03</em><div class="author">Laurent</div><div class="text">Great tool.<br>
+Do you have any RSS thread (Datepicker only) which we can link to, to get latest update as soon as there is one ?<br>
+Also, do you have any change log to see improvements from one version to an other ?<br>
+<br>
+Some ideas of improvements:<br>
+<br>
+-Possibility to place it in line (always shown).<br>
+-Possibility to drag it.<br>
+<br>
+I'd like to add this :<br>
+It would be great to allow one to change the minDate dynamically. I use
+2 datepicker (start date and end date). When i select the start date,
+i'd like the end date to auto ajust to the start date AND the
+datepicker not to allow dates before the start date.<br>
+<br>
+Hope you understand. I guess i could do it by recreating an instance of DatePicker onSelect of the first one.<br>
+<br>
+Again, thanks for this tool!</div></div><a name="comment_97"></a><div class="comment"><em class="date">07-08-2009, 21:48</em><div class="author">Scott Stevens</div><div class="text">You
+have definitely made the best calendar script that I have seen. I would
+like to know if there is a way to have the calendar show at a location
+on the page(relative - say inside a empty div) and then stay as you
+select a date while updating a var or form/hidden field??<br>
+<br>
+Thanks</div></div><a name="comment_98"></a><div class="comment"><em class="date">10-08-2009, 18:14</em><div class="author">Designermonkey</div><div class="text">This is really good! some questions though...<br>
+<br>
+Is it possible to have the calendar inline (always displayed) above the input element?<br>
+Is it possible to start the calendar in decades mode, then month, then date?<br>
+<br>
+If anyone could answer this question, or build a calendar that can ;) I would greatly appreciate it!</div></div><a name="comment_99"></a><div class="comment"><em class="date">11-08-2009, 11:37</em><div class="author">Adam</div><div class="text">Really nice script.<br>
+17.5kb as minified really doesn't justify its use for me though.
+Possible just needs a different way to compress it? I tried
+bananascript dot com and got it down to 6kb. You might want to dish
+that out as the minified versin with an explanation of what charset to
+use on the script include :))</div></div><a name="comment_100"></a><div class="comment"><em class="date">12-08-2009, 08:22</em><div class="author">Daniel Buchner</div><div class="text">I
+didn't see an AM/PM selection option, is it inferred as being part of
+the 12 hour time option or is it just yet-to-be thought of?</div></div><a name="comment_101"></a><div class="comment"><em class="date">12-08-2009, 13:38</em><div class="author">Jeanphi</div><div class="text">is there a way to add picker just for one element?<br>
+<br>
+something like : <br>
+var picker = new DatePicker(myElement,{....});<br>
+</div></div><a name="comment_102"></a><div class="comment"><em class="date">17-08-2009, 10:18</em><div class="author">ALberto</div><div class="text">Very good datepicker...but i have a question...<br>
+How can i empty the box after declaration with javascript?</div></div><a name="comment_103"></a><div class="comment"><em class="date">17-08-2009, 11:47</em><div class="author">ALberto</div><div class="text">I have another question:<br>
+How can i take the value of input box with javascript to control?</div></div><a name="comment_104"></a><div class="comment"><em class="date">17-08-2009, 12:26</em><div class="author">Laurent</div><div class="text">Hi,<br>
+<br>
+Some ideas (sent by mail + 1 new) :<br>
+-(new !) Add the possibility to show week numbers on each week line.<br>
+<br>
+-Auto-date update two datepickers according to the value of one-another :<br>
+on minDate update, if stopdate's currently selected date &lt; minDate then stopedate's currently selected date = minDate.<br>
+Same for max date<br>
+on maxDate update, if stopdate's currently selected date &gt; maxDate then stopedate's currently selected date = maxDate.<br>
+<br>
+Some problems i encoutered :<br>
+<br>
+-When i configured mindate with current time. Current day wasn't
+selectable. I had to clearTime() so that current day would be
+selectable.<br>
+-My "value input" START_DATE was empty after creating the DatePicker.
+It would be great that upon creation of a datepicker on an input (here,
+what i call the "value input"), IF that input is empty then either the
+date input is also empty or the value input is filled with the date
+input value. Maybe this could be set up using options ?<br>
+-I tried to access $$('input[name=START_DATE]').retrieve('datepicker').
+That was unsuccessful. Is it normal ? do i have to do something
+particular ? I thought it was logical that the datepicker would be
+attached to the input by default.<br>
+<br>
+-Make it possible to specify minDate: 'today'. I think this is something alot of people would use.<br>
+<br>
+Always and forever : thanks for this tool !</div></div><a name="comment_105"></a><div class="comment"><em class="date">18-08-2009, 07:53</em><div class="author">sims</div><div class="text">I
+just wanted to mention to anyone trying to set the value of one input
+from the value of another. One person commented that dateA should
+always be before dateB. I don't think it's currently possible because
+this script hides the original html input element and creates another
+one without an id. So when you refer to your input element via id, it
+might change the hidden one. I have not tested this to prove, but I
+think that is why it will not work. It would be nice if the author used
+another method. That ways we could still set the value of the input
+element from other JS.<br>
+<br>
+Other than that, it's very nice.</div></div><a name="comment_106"></a><div class="comment"><em class="date">18-08-2009, 18:09</em><div class="author">Laurent</div><div class="text">Another quirk :<br>
+var oDatePicker = new DatePicker(oDate,{<br>
+	format: 'd-m-Y',<br>
+	toggleElements: '#DateResume',<br>
+});<br>
+<br>
+#DateResume is a SPAN containing the date.<br>
+oDate is an input[type=hidden]<br>
+<br>
+1-The DatePicker doesn't auto-update the span, have to do it onSelect.<br>
+2-The DatePicker appears in the top left corner instead of under the SPAN (i suppose it's cause it can't find the input)<br>
+<br>
+Thanks again</div></div><a name="comment_107"></a><div class="comment"><em class="date">18-08-2009, 20:41</em><div class="author">Jugal Bandi</div><div class="text">Really
+nice, but I still don't get how to set the value. When I set the
+'value' of my element to "seconds since the epoch". That's what shows
+up, not the formatted value.<br>
+<br>
+Also when the page loads the current date time shows, but the 'value'
+is empty if the form is submitted. So, how can I set the value and have
+the format correct? Hope this is clear.<br>
+<br>
+Using in a script section called via body=onload():<br>
+---------------------------------------------------<br>
+<br>
+mydatepicker = new DatePicker('.demo_time', { pickerClass: 'datepicker_vista', timePicker: true, format: 'd-m-Y @ H:i' });<br>
+<br>
+And this in the form:<br>
+---------------------<br>
+&lt;input name='mydate' type='text' value='$context{dt}' class='date demo_time' /&gt;<br>
+<br>
+The html is built in a Perl script to show $context{dt} becomes
+initialized with a time that was previously submitted. That value would
+be something like: 1249544543 . Would also like to change this value
+with javascript and have the format correct.<br>
+<br>
+Any thoughts?  Thanks.<br>
+</div></div><a name="comment_108"></a><div class="comment"><em class="date">19-08-2009, 08:53</em><div class="author">ALberto</div><div class="text">Anybody help me? ;(<br>
+<br>
+How can i empty the box after declaration with javascript?<br>
+How can i set and get the value of input box with javascript to control?</div></div><a name="comment_109"></a><div class="comment"><em class="date">20-08-2009, 13:34</em><div class="author">Treur</div><div class="text">@ALberto<br>
+Take a look at the workaround Cyrille (05-07-2009, 16:57) described. It
+isn't a very elegant/safe solution, but as far as I know the only one
+available.</div></div><a name="comment_110"></a><div class="comment"><em class="date">20-08-2009, 14:42</em><div class="author">Laurent</div><div class="text">I solved one problem :<br>
+If your main input is invisible (display none or type hidden) the
+picker won't appear in IE7 and will be displayed at the top left corner
+in FF 3.5<br>
+<br>
+To solved this i changed the code like that:<br>
+<br>
+line 148<br>
+- this.onFocus(item, clone);<br>
++ this.onFocus(item, clone, togglers[index]);<br>
+<br>
+line 177-178<br>
+- onFocus: function(original_input, visual_input) {<br>
+- var init_visual_date, d = visual_input.getCoordinates();<br>
++ onFocus: function(original_input, visual_input) {<br>
++ var init_visual_date, d = ($defined(toggler) ? toggler:visual_input).getCoordinates();<br>
+<br>
+Hope this helps<br>
+</div></div><a name="comment_111"></a><div class="comment"><em class="date">20-08-2009, 14:44</em><div class="author">Laurent</div><div class="text">One type :<br>
+<br>
+line 177<br>
+- onFocus: function(original_input, visual_input) {<br>
++ onFocus: function(original_input, visual_input, toggler) {<br>
+<br>
+sry for the 2nd post</div></div><a name="comment_112"></a><div class="comment"><em class="date">20-08-2009, 15:50</em><div class="author">ALberto</div><div class="text">thanks treur, i solve. I use $('id_element').getNext().value</div></div><a name="comment_113"></a><div class="comment"><em class="date">24-08-2009, 19:01</em><div class="author">Rob</div><div class="text">Great script, however I have a question.  How do I set a value via javascript?<br>
+<br>
+// this will change the value of the form field<br>
+// but will not update the display<br>
+form.datefield.value=1249621200;<br>
+<br>
+I need a way to update the value and display of a date field.<br>
+<br>
+<br>
+</div></div><a name="comment_114"></a><div class="comment"><em class="date">26-08-2009, 06:58</em><div class="author">Ivan </div><div class="text">Thank you very much.Great scripts guys!</div></div><a name="comment_115"></a><div class="comment"><em class="date">26-08-2009, 10:52</em><div class="author">thomas</div><div class="text">Nice
+articles, and I had try to do it in the simple html form and it work.
+However, I am trying to put it to the ajax form, then it doesn't work.
+How and where to use the function:<br>
+<br>
+my_datepicker.attach();<br>
+<br>
+to attach the datepicker in the ajax form so that it will work?</div></div><a name="comment_116"></a><div class="comment"><em class="date">27-08-2009, 08:23</em><div class="author">jake williamson</div><div class="text">1st class date picker ;)<br>
+<br>
+i have 2 questions: i'm trying to set the date and time for an update form. i've set the value of my textbox field to:<br>
+<br>
+value='27/08/2009 @ 15:00'<br>
+<br>
+and the format to:<br>
+<br>
+format: 'd/m/Y @ H:i',<br>
+<br>
+but when the page loads, the date sticks but the time updates to the system time of my machine!<br>
+<br>
+the 2nd question is i like to disable the form fields (to restrict
+users typing incorrect dates and then having to validate them) but i'm
+a asp.net user meaning i can access the form field when the page is
+submitted...<br>
+<br>
+i usually use a hidden field to store the values of disabled fields, but how do i pass the date/time value to this field?<br>
+<br>
+any info you can provide would be awusm,<br>
+<br>
+cheers,<br>
+<br>
+jake</div></div><a name="comment_117"></a><div class="comment"><em class="date">28-08-2009, 07:49</em><div class="author">jake williamson</div><div class="text">ah ha! got one thing nailed - managed to pass the date to the hidden field:<br>
+<br>
+onSelect: function(d) {<br> $('hidden_field').value =
+d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate() + " " +
+d.getHours() + ":" + d.getMinutes() + ":00";<br>
+}<br>
+<br>
+but still cant get the form fields to load the time correctly? i've tried every format i can think off...<br>
+<br>
+cheers,<br>
+<br>
+jake<br>
+<br>
+</div></div><a name="comment_118"></a><div class="comment"><em class="date">28-08-2009, 09:14</em><div class="author">jake williamson</div><div class="text">gottit! need to set:<br>
+<br>
+format: 'd/m/Y @ H:i'<br>
+<br>
+and:<br>
+<br>
+inputOutputFormat: 'd/m/Y @ H:i'<br>
+<br>
+works a treat ;)</div></div><a name="comment_119"></a><div class="comment"><em class="date">29-08-2009, 20:27</em><div class="author">Dan Grigore</div><div class="text">Hi.<br>
+<br>
+In case anybody needed this, I am using the script on an input with a
+label related to its id, so i modified it a bit to assign the id to the
+clone and remove it from the original input. Starting line 130 of the
+uncompressed script.<br>
+<br>
+var display = item.getStyle('display');<br>
+var originalID = item.getProperty('id');<br>
+var clone = item<br>
+.setStyle('display', this.options.debug ? display : 'none')<br>
+.store('datepicker', true) // to prevent double attachment...<br>
+.removeProperty('id')<br>
+.clone()<br>
+.store('datepicker', true) // ...even for the clone (!)<br>
+.removeProperty('name')    // secure clean (form)submission<br>
+.setProperty('id', originalID)<br>
+.setStyle('display', display)<br>
+.set('value', init_clone_val)<br>
+.inject(item, 'after');<br>
+<br>
+Cheers!</div></div><a name="comment_120"></a><div class="comment"><em class="date">31-08-2009, 16:47</em><div class="author">Lee</div><div class="text">Great
+staart...just finished integrating DatePicker and was impressed at how
+easy it was to implement. For some reason however (even with
+debug=true) the calendar opens exactly one month ahead of the actual
+date selected. So if I have 2009-09-02 in the debug field, when I click
+in the calendar field it starts the calendar at 2009-10-02??? Am I
+missing something?</div></div><a name="comment_121"></a><div class="comment"><em class="date">31-08-2009, 16:49</em><div class="author">Bill</div><div class="text">Help please? Here's my script:<br>
+<br>
+window.addEvent('load', function() {<br>
+			new DatePicker('.demo_vista', { pickerClass: 'datepicker_vista',inputOutputFormat: 'm/d/Y',debug: true });<br>
+	<br>
+		});<br>
+<br>
+Filed input must be m/d/Y and it must display like that and write to
+the database like that. But while it writes to the database ok...and
+displays ok...the hidden field ALWAYS displays the wrong date...it
+jumps ahead one month? So if I input 09/03/2009 the hidden field will
+display 03-10-2009 and have that date selected on the pop up calendar?
+How do I make it pick the right date?</div></div><a name="comment_122"></a><div class="comment"><em class="date">31-08-2009, 17:04</em><div class="author">Bill</div><div class="text">Wow, freaky, similar issue posted 2 seconds before mine. <br>
+<br>
+Anyway...I think Jake was onto something....with<br>
+<br>
+<br>
+onSelect: function(d) {<br>
+$('hidden_field').value = d.getFullYear() + "/" + (d.getMonth() + 1) +
+"/" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":00";<br>
+}<br>
+<br>
+<br>
+But being a javascript weakling...I don't know how to implement it or adapt it?<br>
+<br>
+Anyone help?</div></div><a name="comment_123"></a><div class="comment"><em class="date">01-09-2009, 09:26</em><div class="author">Greg</div><div class="text">Several of our customers were affected by a bug in the date picker yesterday.  <br>
+<br>
+If you start with the date 08/31/2009 and click on the calendar then
+click the right arrow to go to the next month it goes to October
+instead of September!<br>
+<br>
+Can this be fixed?</div></div><a name="comment_124"></a><div class="comment"><em class="date">01-09-2009, 17:49</em><div class="author">Alex</div><div class="text">Thank you very much for this beautiful Picker! <br>
+<br>
+May I suggest you add the following to the CSS so the Picker layout won't be affected by any existing CSS:<br>
+<br>
+.datepicker .header {<br>
+	margin: 0;<br>
+	padding: 0;<br>
+	background: none;<br>
+	[...]<br>
+}<br>
+<br>
+In my case I had already a .header class with some margin, padding and
+background set which led to layout problems in the Picker.<br>
+<br>
+Cheers.</div></div><a name="comment_125"></a><div class="comment"><em class="date">01-09-2009, 20:53</em><div class="author">Truman</div><div class="text">Thanks
+for this awesome date picker! Would you consider providing an option to
+embed a calendar into a page so that it shows upon dom ready rather
+than requiring an onClick event to display? </div></div><a name="comment_126"></a><div class="comment"><em class="date">02-09-2009, 14:16</em><div class="author">Taracque</div><div class="text">Nice
+picker, but it doesn't work correctly if date changes after the picker
+is attachet. Either .attach() needs to refresh the date from the
+original input or there should be .reload method which reloads the date
+from the original input field.</div></div><a name="comment_127"></a><div class="comment"><em class="date">04-09-2009, 10:13</em><div class="author">jean-phi</div><div class="text">Hi,<br>
+<br>
+we made a keyboard navigable version of this script :<br>
+<br>
+http://www.fri-dev.com/index.php?post/2009/09/04/Monkey-Physics-datepicker-%3A-keyboard-navigation-fix<br>
+</div></div><a name="comment_128"></a><div class="comment"><em class="date">04-09-2009, 12:29</em><div class="author">Dinesh</div><div class="text">31st of a month(like 31-Jan-09.) will be shown as 1st of that month(1-Jan-09)<br>
+Iam not sure if this is bug or something Iam doing is wrong</div></div><a name="comment_129"></a><div class="comment"><em class="date">06-09-2009, 22:04</em><div class="author">2San</div><div class="text">Many sanks for your work! <br>
+Can i make offer for you datepicker: when i attach image for toggle
+calendar way text field lost action on Focus event for show calendar
+instance? It mast be work too.<br>
+</div></div><a name="comment_130"></a><div class="comment"><em class="date">11-09-2009, 11:17</em><div class="author">rholthe</div><div class="text">Nice
+work but having a small problem. When setting mindate in the future (eg
+first selectable day two days from now), the datepicker is one day off
+in IE. In FF the datepicker shows correct the first time, but once the
+date is selected it is also one day off (first selectable day 3 days
+from now). </div></div><a name="comment_131"></a><div class="comment"><em class="date">13-09-2009, 16:58</em><div class="author">MArc</div><div class="text">Very nice work, but sadly unusable. Much customer/user doesn't understand to change the year and month intuitively :(<br>
+they click very often at the arrows ...<br>
+It is sadly a killer argument in much projects :(<br>
+<br>
+May you change the number of the year and month with a select-box and
+if the time-picker is enabled you add the timepicker (smaller) at top
+of the chooser instead of adding the second step.<br>
+<br>
+Grettings from Germany</div></div><a name="comment_132"></a><div class="comment"><em class="date">17-09-2009, 17:24</em><div class="author">Rekcor</div><div class="text">I added a refresh function to the DatePicker. In the uncompressed Javascript version, add a line just before line 174 <br>
+<br>
+}.bind(this));<br>
+<br>
+On the new line 174, add<br>
+<br>
+//save reference to clone for later use<br>
+this.clone = clone;<br>
+<br>
+Then add the following code after <br>
+<br>
+}.bind(this));<br>
+},<br>
+<br>
+(so on line 178 that is)<br>
+<br>
+refresh: function(){<br>
+		$$(this.attachTo).each(function(item) {<br>
+			// determine starting value(s)<br>
+			if ($chk(item.get('value'))) {<br>
+var init_clone_val = this.format(new
+Date(this.unformat(item.get('value'), this.options.inputOutputFormat)),
+this.options.format);<br>
+			} else if (!this.options.allowEmpty) {<br>
+				var init_clone_val = this.format(new Date(), this.options.format);<br>
+			} else {<br>
+				var init_clone_val = '';<br>
+			}			<br>
+			this.clone.set('value', init_clone_val);<br>
+		}.bind(this))<br>
+	},<br>
+<br>
+Now you can set the new UNIX timestamp in your own input/select, and call the refresh function of the DatePicker.</div></div><a name="comment_133"></a><div class="comment"><em class="date">18-09-2009, 22:57</em><div class="author">Abhijeet</div><div class="text">Hi,<br>
+I'm using your CSS based date picker. I'm using CSS with basic skin.
+but I see some special characters (Â«) for previous and next buttons. <br>
+Also the width of the title (month year, next button, close button) doesn't extend fully.<br>
+Also i see some blank space between border and calendar. I'm using IE7.
+When i run the demo from this website it works fine. But when I refer
+to downloaded files datepicker.js and above CSS...it is little off..</div></div><a name="comment_134"></a><div class="comment"><em class="date">21-09-2009, 18:44</em><div class="author">Jonas Gedrat</div><div class="text">Show, show show.<br>
+Have the InvalidWeekDays implemented??? or setDisabledWeekDays, this i
+found in CalendaPopup.JS, is very
+usefull.http://www.mattkruse.com/javascript/calendarpopup/index.html</div></div><a name="comment_135"></a><div class="comment"><em class="date">22-09-2009, 01:47</em><div class="author">Metin</div><div class="text">thanks
+for great tool. is it possible to start date picker reverse like, first
+year and month and at last the day for using it as birthdate picker?</div></div><a name="comment_136"></a><div class="comment"><em class="date">23-09-2009, 18:58</em><div class="author">Jay</div><div class="text">I'm
+in the process of implementing a struts2 datetimepicker replacement
+that uses your datetimepicker.js as the UI side of things. I've had a
+difficult time getting the formats matched up between struts2, xwork,
+and your date picker. <br>
+<br>
+I almost have it working but encountered what I think is a bug. My
+inputOutputFormat is "n/j/y". If the date that is passed in looks like
+"9/12/09", datetimepicker.js will throw an error that it cannot format
+the year. I believe this is because your regex matches the "1" in "12",
+and therefore thinks the chunk to match against "y" is "/09" rather
+than "09".<br>
+<br>
+My temporary workaround is to reverse the order of the regex like
+"3[01]|[12][0-9]|[1-9]" instead of "[1-9]|3[01]|[12][0-9]" so that it
+picks the biggest match first.<br>
+<br>
+Not sure if this is the best solution, but thought you might want to know about a possible bug.<br>
+<br>
+Otherwise, great job and thanks for the tool!<br>
+</div></div><a name="comment_137"></a><div class="comment"><em class="date">24-09-2009, 15:46</em><div class="author">ms</div><div class="text">Hi, <br>
+<br>
+Thanks for the great tool!!<br>
+We are using the datepicker in our .net 3.5 website project there is a
+need to disable some of the dates on the calendar depending on the
+selection in a dropdownlist server control. <br>
+<br>
+I have never worked with mootools <br>
+Please help!!!</div></div><a name="comment_138"></a><div class="comment"><em class="date">25-09-2009, 11:43</em><div class="author">ltdeta</div><div class="text">datepicker toggled by Element:<br>
+<br>
+how can i set the current date into the input box onshow<br>
+<br>
+my workaround (it is very dirty^^):<br>
+datepicker.visual.set('value', datepicker.format(datepicker.d, datepicker.options.inputOutputFormat));<br>
+<br>
+is there a more simply way?</div></div><a name="comment_139"></a><div class="comment"><em class="date">25-09-2009, 12:39</em><div class="author">ltdeta</div><div class="text">another question "datepicker toggled by Element"<br>
+<br>
+i can't change the input-field-value from outside after it is bind on datepicker<br>
+example  $('id_input_field').value='';<br>
+</div></div><a name="comment_140"></a><div class="comment"><em class="date">28-09-2009, 14:50</em><div class="author">Robert</div><div class="text">Maybe option "yearPickerOnly" to choose only years? Would be consistent with other date inputs...</div></div><a name="comment_141"></a><div class="comment"><em class="date">28-09-2009, 18:49</em><div class="author">Victor</div><div class="text">I think I found a weird bug -- can anyone help please?<br>
+<br>
+When I set a Datepicker in the page, the visible value in the text
+field is right (today's date). But if I submit the form that has the
+Datepicker in it, without changing the default values, the form field
+comes out blank? If I change the value, everything gets submitted the
+right way.<br>
+<br>
+Any suggestions?</div></div><a name="comment_142"></a><div class="comment"><em class="date">29-09-2009, 12:34</em><div class="author">Hessu</div><div class="text">Sadly Chrome (v:3.0.195.21@winXP) is not go, datepicker dosent showup.<br>
+In FF3.5/Opera 10 works like a charm<br>
+ </div></div><a name="comment_143"></a><div class="comment"><em class="date">30-09-2009, 12:59</em><div class="author">Mihai</div><div class="text">great work thanx!</div></div><a name="comment_144"></a><div class="comment"><em class="date">01-10-2009, 23:02</em><div class="author">Bob</div><div class="text">Really
+great plugin. I like how you handle tabbing into and out of the
+textfield. I've added an onShow event to make sure the calendar is
+shown (in case the page isn't scrolled down enough). Might be a good
+addition to the class:<br>
+<br>
+var cal = $$('.datepicker_vista')[0];<br>
+var screenHeight = window.getSize().y;<br>
+var screenBottom = window.getScroll().y+screenHeight;<br>
+var calendarHeight = cal.getSize().y;<br>
+var calendarBottom = cal.getPosition().y+calendarHeight;<br>
+if(calendarBottom&gt;screenBottom){<br>
+	var newY = calendarBottom+10-screenHeight;<br>
+	window.scrollTo(0,newY);<br>
+}<br>
+<br>
+Also, for birthday pickers, it's nice to hide the year in the title. So I added an option for that:<br>
+<br>
+if(this.options.hideYear){<br>
+  this.picker.getElement('.titleText').set('text',this.options.months[month]);<br>
+}else{<br>
+  this.picker.getElement('.titleText').set('text',this.options.months[month]+' '+this.d.getFullYear());<br>
+}<br>
+<br>
+And last, although your documentation and your example show minDate and
+maxDate to be inclusive, when I try it on my own page it's exclusive.
+Any thoughts offhand? I can send you the code if you want to pm me. The
+page isn't live yet.<br>
+<br>
+Thanks,<br>
+<br>
+Bob</div></div><a name="comment_145"></a><div class="comment"><em class="date">02-10-2009, 08:20</em><div class="author">Bob</div><div class="text">Hmmm... disregard the issue with minDate/maxDate. Seems like it was a caching issue in my code. Working correctly now.</div></div><a name="comment_146"></a><div class="comment"><em class="date">02-10-2009, 22:08</em><div class="author">Fli7e</div><div class="text">Already postet this in the blog ... so here it goes again:<br>
+<br>
+Hi there!<br>
+<br>
+VERY nice Datepicker - best i've ever seen and i wanted to include it
+into my (under development) CSS-Frame Layout you can find over at
+http://www.artness.de/area/.<br>
+<br>
+Two "Bugs" i am fighting with are:<br>
+<br>
+In IE the Datepicker will "hide" all DIVs and display only itself. All Div's reveal again if the datepicker ist closed.<br>
+<br>
+To workaround this strange behaviour, i needed to inject() it inside the DIV where the toggler (input field) is placed.<br>
+<br>
+The 2nd Problem is, that the screen position is calculated absolutely + scrolled offset.<br>
+<br>
+The DIV the datepicker toggler is located in, is scrollable so the
+screen itself stay where it is but the div with the toggler scrolls.
+The result is, that the datepicker will not display right below the
+toggler but somewhere else.<br>
+<br>
+Is there any chance of a workaround or a fix .. like some extra option to setup the target the picker should be injected to:<br>
+<br>
+options: { injectTarget : false }<br>
+<br>
+this.picker = new Element('div', { 'class': this.options.pickerClass
+}).inject(this.options.injectTarget ? this.options.injectTarget :
+document.body);<br>
+<br>
+and 2ndly to have an option on how to place the datepicker - if the
+whole page is scrolled, everything is fine but if a scrollable div is
+scrolled, the repositioning fails ...<br>
+<br>
+sorry for my english - it's not my mother tongue though.<br>
+<br>
+Keep up the excellent work<br>
+</div></div><a name="comment_147"></a><div class="comment"><em class="date">03-10-2009, 18:00</em><div class="author">Dan</div><div class="text">Niceness, indeed!</div></div><a name="comment_148"></a><div class="comment"><em class="date">05-10-2009, 09:47</em><div class="author">takien</div><div class="text">Hi..<br>
+my date still formatted (05-10-2009) in the input text..<br>
+<br>
+my setting:<br>
+&lt;pre&gt;<br>
+inputOutputFormat: 'd/m/Y',<br>
+&lt;/pre&gt;<br>
+<br>
+and html<br>
+&lt;code&gt;<br>
+&lt;input size="30" value="05/10/2009" class="date date_pick" type="text"&gt;&lt;/code&gt;<br>
+<br>
+i hve set the value is current date..<br>
+<br>
+<br>
+please help.. thanks <br>
+<br>
+</div></div><a name="comment_149"></a><div class="comment"><em class="date">06-10-2009, 19:30</em><div class="author">Sergio</div><div class="text">Why do we need to 'clone' the element? I can't see why? How coul I use it without clone?</div></div><a name="comment_150"></a><div class="comment"><em class="date">13-10-2009, 23:44</em><div class="author">Jetscram</div><div class="text">Beer to you! Thank you for contributing to the community :)</div></div><a name="comment_151"></a><div class="comment"><em class="date">16-10-2009, 13:57</em><div class="author">E. Muller</div><div class="text">I suggest adding the following function to set the minDate dynamically:<br>
+<br>
+setMinDate: function(smindate, sformat) {<br>
+		this.options.minDate = this.unformat(smindate, sformat);<br>
+			this.options.minDate.setHours(0);<br>
+			this.options.minDate.setMinutes(0);<br>
+			this.options.minDate.setSeconds(0);<br>
+			this.options.minDate.setMilliseconds(0);<br>
+<br>
+	}<br>
+<br>
+Also i would suggest initializing the minDate's hour, minute and
+seconds and even milliSeconds, so that date comparisons will be more
+accurate. <br>
+<br>
+So the "formatMinMaxDates" function should be:<br>
+<br>
+<br>
+<br>
+formatMinMaxDates: function() {<br>
+	if (this.options.minDate &amp;&amp; this.options.minDate.format) {<br>
+			this.options.minDate = this.unformat(this.options.minDate.date, this.options.minDate.format);<br>
+			this.options.minDate.setHours(0);<br>
+			this.options.minDate.setMinutes(0);<br>
+			this.options.minDate.setSeconds(0);<br>
+			this.options.minDate.setMilliseconds(0);<br>
+			<br>
+		}<br>
+		if (this.options.maxDate &amp;&amp; this.options.maxDate.format) {<br>
+			this.options.maxDate = this.unformat(this.options.maxDate.date, this.options.maxDate.format);<br>
+			this.options.maxDate.setHours(23);<br>
+			this.options.maxDate.setMinutes(59);<br>
+			this.options.maxDate.setSeconds(59);<br>
+			this.options.maxDate.setMilliseconds(999);<br>
+		}<br>
+	}<br>
+<br>
+Anyways, good work on this datepicker, works very well ! Thanks.<br>
+<br>
+-Emil</div></div><a name="comment_152"></a><div class="comment"><em class="date">17-10-2009, 04:28</em><div class="author">Bob</div><div class="text">Am
+I daft or is the calendar off by 1 day? I use a starting unix date of
+1255752000, which is Saturday, October 17, 2009 12:00:00 AM, and the
+calendar shows October 16. In the reverse direction, I select Oct. 17
+on the date picker and it spits out 1255838400. That date is Sunday,
+October 18, 2009 12:00:00 AM. What am I doing wrong? Thanks in advance.</div></div><a name="comment_153"></a><div class="comment"><em class="date">21-10-2009, 12:27</em><div class="author">Vince Poile</div><div class="text">Hi,<br>
+<br>
+This app looks great!!! I'm looking to replace my current date picker,
+I'd love to use this one but I was wondering whether its easily
+possible to separate the output in to 3 inputs/selects this is
+essential for the app its going into.<br>
+<br>
+If its not possible I will look at writing the functionality into the datepicker if thats ok?<br>
+<br>
+Please let me know!<br>
+Vince<br>
+</div></div><a name="comment_154"></a><div class="comment"><em class="date">21-10-2009, 22:29</em><div class="author">Pepe</div><div class="text">Hi!<br>
+<br>
+Great components but it lacks the functionality to alter the value remotely via javascript...<br>
+<br>
+I took the liberty and fixed this problem with the following solution:<br>
+<br>
+I define an additional event for the original input element inside the
+attach() function of the class. (In my version of the script - which is
+1.16 - this is line 143):<br>
+<br>
+item.addEvent(\'change\', function(value) {<br>
+  this.input = item;<br>
+  this.visual = clone;<br>
+  var d = new Date(this.unformat(value, this.options.inputOutputFormat));<br>
+  this.select({ day: d.getDate(), month: d.getMonth(), year: d.getFullYear() });<br>
+}.bind(this));<br>
+<br>
+After this you can change the value of the element by firing the change event, e.g.<br>
+<br>
+$(\'mydatepicker\').fireEvent(\'change\', \'2009-10-23\');<br>
+<br>
+Please make sure to set the inputOutputFormat property according to your date format!<br>
+<br>
+Cheers and thanks for the component!<br>
+<br>
+<br>
+Pepe / Developer at www.groupion.com</div></div><a name="comment_155"></a><div class="comment"><em class="date">21-10-2009, 22:31</em><div class="author">Pepe</div><div class="text">... and please note the the comment tool you are using is not handling the quotation marks very nicely! :-)</div></div><a name="comment_156"></a><div class="comment"><em class="date">22-10-2009, 16:18</em><div class="author">Bruno</div><div class="text">This is the best datepicker for mootools I've seen so far, thanks for sharing!<br>
+<br>
+The only thing I'd like to see implemented, is the option "zIndex": if
+you're using the picker in a modal window, it will be displayed behind
+it. It's just 1-2 lines of code to modify, I've did it to my copy and
+thought I'd share the idea.<br>
+<br>
+Thanks again!</div></div><a name="comment_157"></a><div class="comment"><em class="date">24-10-2009, 21:37</em><div class="author">Brade</div><div class="text">Wow,
+really great date picker. Much better than the clientcide one. My only
+request would be to have the cursor focus back into the input after
+selecting a date, so you can easily tab to the next field.</div></div><a name="comment_159"></a><div class="comment"><em class="date">27-10-2009, 04:17</em><div class="author">pangwa</div><div class="text">This looks really awesome! Thanks very much for the great work! Now I'm using it with my site:D</div></div><a name="comment_160"></a><div class="comment"><em class="date">30-10-2009, 11:34</em><div class="author">Dan</div><div class="text">Does it follow MySQL standard Date formatting??? where the input from database is 'Y-m-d' and not 'd-m-Y'...</div></div><a name="comment_161"></a><div class="comment"><em class="date">30-10-2009, 11:48</em><div class="author">Dan</div><div class="text">But of cause, it can:<br>
+<br>
+inputOutputFormat: \'Y/m/d\'<br>
+<br>
+It\'s a really great little tool, Thank you.</div></div><a name="comment_162"></a><div class="comment"><em class="date">30-10-2009, 16:02</em><div class="author">Olivier</div><div class="text">Very niceful script.<br>
+<br>
+I'd like to know if this script allow us to open the calendar directly when the mouse is over the form field ?<br>
+<br>
+i don't want the users to have to click in the form field to open the calendar.<br>
+<br>
+Can you tell me if it is possible ?<br>
+<br>
+Thanks<br>
+Olivier</div></div><a name="comment_163"></a><div class="comment"><em class="date">31-10-2009, 14:08</em><div class="author">httpwebwitch</div><div class="text">I'm having trouble with the string-formatted date. <br>
+<br>
+My input/output format is "Y-m-d", my display format is "F j, Y".<br>
+<br>
+Dates in September, like "2009-09-17" are being formatted as "October 17, 2009", not "September 17, 2009".<br>
+<br>
+I haven't figured out why. Seems to be happening only with dates
+September. All my September dates are being rendered as October. <br>
+<br>
+But then if I use the datepicker to change the date, September is fine.
+This is only happening when the datepicker is initialized. It makes no
+sense.</div></div><a name="comment_164"></a><div class="comment"><em class="date">31-10-2009, 15:16</em><div class="author">httpwebwitch</div><div class="text">I fixed your bug. It was an interesting one to find.<br>
+<br>
+No wonder it wasn't noticed before -- It will only happen on days like
+today (Oct 31) when you are initializing to a month which doesn't have
+this date (eg September 31, which doesn't exist). <br>
+<br>
+line 711 in the "unformat" method, this line fails:<br>
+case 'n': d.setMonth(v - 1); break;<br>
+<br>
+I can't change the date to September, because the current date is
+October 31 and there is no September 31. The method fails silently, and
+I end up with the wrong month.<br>
+<br>
+To fix this, just add this before the "switch" on line 707:<br>
+d.setDate(1);<br>
+<br>
+For general consumption, you might want more sophisticated logic, but that fixed my problem.<br>
+<br>
+Cheers</div></div><a name="comment_165"></a><div class="comment"><em class="date">31-10-2009, 23:28</em><div class="author">Michal</div><div class="text">This is a great tool, but I do have some suggestions:<br>
+<br>
+- Make it work well with OverText (There are a few issues, which I suspect is due to the cloning of elements)<br>
+<br>
+- Have it implement Events, and fire onShow / onClose events, rather
+than manually calling the functions (this allows multiple functions to
+be called onShow / onClose, and also allows adding of events nicely
+after the DatePicker object is created)<br>
+<br>
+- Allow the picker to be manually shown and hidden externally (I know
+you can set a manual toggler on creation of the DatePicker, but this
+isn't very flexible)<br>
+<br>
+- For ultimate customisation, instead of having manual "new Element("s
+everywhere, allow customization of the generated HTML. Maybe you could
+specify some sort of "default templates" and then populate these with
+generated data? (All I was personally after was changing the symbol for
+moving left and right in months, but the HTML template route seems like
+it could then handle practically every possible customization.)<br>
+<br>
+<br>
+</div></div><a name="comment_166"></a><div class="comment"><em class="date">01-11-2009, 00:18</em><div class="author">Michal</div><div class="text">And another suggestion:<br>
+<br>
+- Add an option to add a \"Skip\" button to the time picker.<br>
+<br>
+- When firing the event \"onClose\", pass along an object with details
+of the selected time: i.e. the time itself and whether \"Skip\" was
+pressed in the suggestion above<br>
+<br>
+The reason the above would be useful is that for an events calendar,
+whether a time is needed may be event-dependent. Also: on selection of
+the date / time, there may have to be some code to deal with whether
+the user want to specify a time or not.</div></div><a name="comment_167"></a><div class="comment"><em class="date">04-11-2009, 11:06</em><div class="author">Oliver</div><div class="text">I too have a suggestion: Make z-index a parameter!<br>
+<br>
+The div that contains the picker needs a z-index, i tried getting the
+calender to work on a page that had a background div and it took me
+some time to figure out why it wouldn't show.</div></div><a name="comment_168"></a><div class="comment"><em class="date">04-11-2009, 14:42</em><div class="author">Oliver</div><div class="text">I
+also encountered a bug that occurs with IE: If you want to use 'y' for
+two-digit year representation, IE will produce a '109' string because
+of its different implementation of Date.getYear().<br>
+<br>
+Sure one could argue it's IE's fault, but it's a bug no matter how you put it, and can be easily mended if you use <br>
+Date.getFullYear().toString().substring(2);<br>
+<br>
+Date.getYear() is obsolete, please don't use it. :)</div></div><a name="comment_169"></a><div class="comment"><em class="date">06-11-2009, 12:54</em><div class="author">Monochrome</div><div class="text">Great datepicker!<br>
+One 'bug' or at least strange behavior. When I load the full moretools,
+the minDate and maxDate fields break functionality. Without those two,
+everything works fine. </div></div><a name="comment_170"></a><div class="comment"><em class="date">07-11-2009, 16:29</em><div class="author">Olivier</div><div class="text">What a great and useful class !<br>
+I've just noticed something wrong (t.tostring()) in the unformat function and Mootools 1.2.4 when option mindate is set...<br>
+<br>
+</div></div><a name="comment_171"></a><div class="comment"><em class="date">08-11-2009, 16:06</em><div class="author">Jensemann</div><div class="text">Hi,<br>
+the refresh function by Rekcor is not free of bugs. The clone is saved
+in the main DatePicker-objekt, but you have to save it in the
+attachTo-Objects to get right results if you have more than one
+Date-Field. <br>
+So change :<br>
+this.clone = clone; =&gt; this.attachTo[index].clone = clone;<br>
+this.clone.set('value', init_clone_val); =&gt; item.clone.set('value', init_clone_val);</div></div><a name="comment_172"></a><div class="comment"><em class="date">09-11-2009, 17:19</em><div class="author">Craig Vincent</div><div class="text">DatePickers don't work when using Date() extentions in mootools more<br>
+<br>
+After implementing some stuff using Mootools more, our datepickers
+failed to work. I eventually tracked it down to a problem in
+formatMinMaxDates() - the date extentions has added a Date.format()
+function to native date objects, so the test to see whether
+this.options.minDate/maxDate was a Date always assumed it wasn't a
+date. - Lines 91 &amp; 94. Here's the fix I put in place: Beginning at
+line 90: formatMinMaxDates: function() { if (this.options.minDate
+&amp;&amp; $type(this.options.minDate) != 'date') {
+this.options.minDate = this.unformat(this.options.minDate.date,
+this.options.minDate.format); } if (this.options.maxDate &amp;&amp;
+$type(this.options.maxDate) != 'date') { this.options.maxDate =
+this.unformat(this.options.maxDate.date, this.options.maxDate.format);
+this.options.maxDate.setHours(23); this.options.maxDate.setMinutes(59);
+this.options.maxDate.setSeconds(59); } } Best wishes, Craig<br>
+or cancel<br>
+<br>
+After implementing some stuff using Mootools more, our datepickers failed to work.<br>
+I eventually tracked it down to a problem in formatMinMaxDates() - the
+date extentions has added a Date.format() function to native date
+objects, so the test to see whether this.options.minDate/maxDate was a
+Date always assumed it wasn't a date. - Lines 91 &amp; 94.<br>
+<br>
+Here's the fix I put in place:<br>
+<br>
+Beginning at line 90:<br>
+formatMinMaxDates: function() {<br>
+<br>
+if (this.options.minDate &amp;&amp; $type(this.options.minDate) != 'date') {<br>
+    this.options.minDate = this.unformat(this.options.minDate.date, this.options.minDate.format);<br>
+}<br>
+if (this.options.maxDate &amp;&amp; $type(this.options.maxDate) != 'date') {<br>
+    this.options.maxDate = this.unformat(this.options.maxDate.date, this.options.maxDate.format);<br>
+    this.options.maxDate.setHours(23);<br>
+    this.options.maxDate.setMinutes(59);<br>
+    this.options.maxDate.setSeconds(59);<br>
+}<br>
+<br>
+}<br>
+<br>
+Hope this helps!<br>
+<br>
+Craig</div></div><a name="comment_173"></a><div class="comment"><em class="date">10-11-2009, 12:51</em><div class="author">Ivan Gasparetto</div><div class="text">There is a small bug when running on IE7 (not sure about other browsers) when you want to display the 2 digits year: 'y'.<br>
+On line 625 we have:<br>
+# case 'y': f += (100 + t.getYear() + '').substring(1); break<br>
+It is returning 109 instead of 09<br>
+I replaced that with this to fix the problem:<br>
+# case 'y': f += (t.getFullYear() + '').substring(2); break;<br>
+<br>
+Regards,<br>
+Ivan</div></div><a name="comment_174"></a><div class="comment"><em class="date">10-11-2009, 12:52</em><div class="author">Ivan Gasparetto</div><div class="text">My email :)</div></div><a name="comment_175"></a><div class="comment"><em class="date">11-11-2009, 15:26</em><div class="author">nescribal</div><div class="text">Very nice tool!<br>
+<br>
+Ihave one suggestion. It would be nice that you could type de date manually.</div></div><a name="comment_176"></a><div class="comment"><em class="date">12-11-2009, 10:40</em><div class="author">Jeffrey Ropp</div><div class="text">There appears to be a bug when using IE6 on XP.<br>
+For some reason, the last row of dates doesn't show up. For example, in
+March 2009, the last visible row is 23-29 which means 30 and 31 aren't
+selectable. Your thoughts?</div></div><a name="comment_177"></a><div class="comment"><em class="date">12-11-2009, 11:15</em><div class="author">Marcel</div><div class="text">Very nice component, saved my a lot of work. Thank you!<br>
+<br>
+I fixed a glitch with the min/max month being one month off in renderYear. <br>
+<br>
+Instead of "... +1 &lt; ..:" and "... -1 &gt; ..." <br>
+maybe "... &lt;= ..." and "... &gt;= ... + 1" is clearer.<br>
+<br>
+I hope the pasting code works:<br>
+<br>
+	limited: function(type) {<br>
+		var cs = $chk(this.options.minDate) &amp;&amp; this.options.minDate;<br>
+		var ce = $chk(this.options.maxDate) &amp;&amp; this.options.maxDate;<br>
+		if (!cs &amp;&amp; !ce) return false;<br>
+<br>
+    var cc = this.d;	<br>
+		switch (type) {<br>
+			case 'year':<br>
+				return (cs &amp;&amp; cc.getFullYear() &lt; cs.getFullYear()) || <br>
+               (ce &amp;&amp; cc.getFullYear() &gt; ce.getFullYear());<br>
+			case 'month':<br>
+        return (cs &amp;&amp; cc.getFullYear()*12+cc.getMonth()+1 &lt; cs.getFullYear()*12+cs.getMonth()) || <br>
+               (ce &amp;&amp; cc.getFullYear()*12+cc.getMonth()-1 &gt; ce.getFullYear()*12+cs.getMonth());<br>
+			case 'date':<br>
+				return (cs &amp;&amp; cc &lt; cs) || (ce &amp;&amp; cc &gt; ce);<br>
+		}<br>
+	},<br>
+</div></div><a name="comment_178"></a><div class="comment"><em class="date">12-11-2009, 19:37</em><div class="author">Jeffrey Ropp</div><div class="text">A follow-up to my previous bug report on IE6 on XP.<br>
+Playing with the CSS, I've found a simple workaround. I changed the
+height of the days. For whatever reason, IE renders them differently
+and there isn't enough space for the last row to show up on the fixed
+size background. Here's what worked for me (looks ok on other browsers
+- just a little extra space at the bottom):<br>
+<br>
+.datepicker_dashboard .days .day {<br>
+	float: left;<br>
+	text-align: center;<br>
+	overflow: hidden;<br>
+	width: 23px;<br>
+	padding-top: 1px;<br>
+	height: 12px;  /*  Modified by Jeff Ropp to deal with IE6  */<br>
+	margin: 0 1px 1px 0;<br>
+}</div></div><a name="comment_179"></a><div class="comment"><em class="date">13-11-2009, 13:23</em><div class="author">rimmer</div><div class="text">great tool!<br>
+<br>
+but i had problem with value of original input. when one doesn't select
+anything, the original input stays clear, so when the form with date
+submits, the value i got is not a default value, but null.<br>
+so i added some improvements to your attach function:<br>
+...<br>
+// determine starting value(s)<br>
+if ($chk(item.get('value'))) {<br>
+...<br>
+} else if (!this.options.allowEmpty) {<br>
+..<br>
+var init_orig_val = this.format(new Date(), this.options.inputOutputFormat); // init original control to default value<br>
+item.set('value', init_orig_val);<br>
+} else {<br>
+...<br>
+<br>
+i think you can include something live this in feature releases</div></div><a name="comment_180"></a><div class="comment"><em class="date">14-11-2009, 13:28</em><div class="author">Ken Marfilla</div><div class="text">I
+think it's better if manual editing of the text field is enabled not
+just delete all on backspace. I'm having an issue on integrating
+cpojer's inputmask class with this since manual editing is disabled.<br>
+<br>
+I also suggest that instead of using your own date parser and formater,
+use Date.Extras in Mootools.More. This way you can focus solving more
+usability issues as they arise.</div></div><a name="comment_181"></a><div class="comment"><em class="date">17-11-2009, 23:25</em><div class="author">Sukhwinder</div><div class="text">I
+want to use only time picker but input box is still showing date and
+doesn't update the box. If I enable debug then a separate input field
+is shown. I am not sure what I am doing wrong.<br>
+-----------------------------------------------------<br>
+<br>
+&lt;head&gt;<br>
+<br>
+  &lt;script type="text/javascript" src="mootools-1.2.4-core-jm.js"&gt;&lt;/script&gt;<br>
+  &lt;script type="text/javascript" src="datepicker.js"&gt;&lt;/script&gt;<br>
+ &lt;link rel="stylesheet" type='text/css' href='datepicker.css'&gt;<br>
+  &lt;script type="text/javascript"&gt;<br>
+    window.addEvent('load', function() {<br>
+	new DatePicker('.demo_ranged', {<br>
+		pickerClass: 'datepicker',<br>
+		inputOutputFormat: 'H:i',<br>
+		timePicker: true,<br>
+		timePickerOnly: true,<br>
+		startView: 'time'<br>
+		<br>
+	});<br>
+});<br>
+  &lt;/script&gt;<br>
+ <br>
+ &lt;/head&gt; <br>
+<br>
+&lt;body&gt;<br>
+<br>
+&lt;input name='time' type='text' value='' class='date demo_ranged' /&gt;&lt;/body&gt;<br>
+&lt;/html&gt;</div></div><a name="comment_182"></a><div class="comment"><em class="date">18-11-2009, 08:03</em><div class="author">rob</div><div class="text">hey - really nice calendar! Great job...<br>
+<br>
+We also needed users to be able to manually enter their own dates and
+search on those, so we modified the addEvents on the clone as follows,
+which obviously enables user input and marries up entered changes with
+the hidden text box:<br>
+<br>
+else {clone.addEvents({<br>
+'keydown': function(e) {<br>
+if (e.key == "tab") {<br>
+this.close(null,true);						}}.bind(this),<br>
+<br>
+'focus':function(e){					this.onFocus(item, clone);<br>
+}.bind(this),<br>
+'keyup':function(e){					this.input.set('value', this.visual.get('value'));				}.bind(this)<br>
+}<br>
+<br>
+thanks and best wishes</div></div><a name="comment_183"></a><div class="comment"><em class="date">19-11-2009, 18:18</em><div class="author">Alfred</div><div class="text">Hi,<br>
+<br>
+very nice work. <br>
+<br>
+Is it possible to show specific start-day other than today or value in textbox??<br>
+<br>
+Thanks<br>
+<br>
+Alfred</div></div><a name="comment_184"></a><div class="comment"><em class="date">20-11-2009, 02:49</em><div class="author">Camilo</div><div class="text">Hi!<br>
+I dont know if anyone could help me, but im completely stuck.<br>
+<br>
+I have been dealing with this error for DAYS. And cant find a solution.<br>
+<br>
+Every time a click a get the error: this.picker is null (line 36 of datepicker.js)<br>
+<br>
+It has something to do with the usage of the jquery library im using
+for input validation scripts, because I just made a quick simple page
+where there is just the input for the datepicker, and it works fine.
+But when i import the jquery library it gives that error.<br>
+<br>
+Using firefox/safari is not a big deal, because the website works OK,
+but using IE is not. You can not move the side bar of the browser and
+also the rest of javascript does not work as they do in other browser,
+because every time a click does not matter where, it gives the
+this.picker is null error. (On Safari it says: 'this.picker [null]' is
+not an object<br>
+<br>
+<br>
+I just hope there is someone that could help me, because im just going crazy....<br>
+<br>
+Thank you!!!</div></div><a name="comment_185"></a><div class="comment"><em class="date">20-11-2009, 19:02</em><div class="author">Jacktar</div><div class="text">Just wondering how to format the text input box - Am I being thick, or can't it be done in the relevant CSS file</div></div><a name="comment_186"></a><div class="comment"><em class="date">21-11-2009, 08:54</em><div class="author">sandhiyadnya</div><div class="text">Hi, its possible to work with mootools 1.1 cause I am using joomla 1.5.<br>
+Thanks</div></div><a name="comment_188"></a><div class="comment"><em class="date">29-11-2009, 21:12</em><div class="author">josh</div><div class="text">Hello,<br>
+this is simply nice. But I am having trouble to get it work. Sorry I am
+real dummy in javascript, but this should not be so difficult to
+implement. I am getting following error when trying to copy code from
+examples<br>
+"DatePicker is not a constructor"<br>
+<br>
+Could someone advice pleaaase?<br>
+my code includes following:<br>
+<br>
+&lt;link href="datepicker_dashboard.css" rel="stylesheet" type="text/css" /&gt;<br>
+&lt;script type="text/javascript" src="js/mootools.js"&gt;&lt;/script&gt;<br>
+&lt;script type="text/javascript" src="datepicker.js"&gt;&lt;/script&gt;<br>
+<br>
+  &lt;/head&gt;<br>
+&lt;body&gt;<br>
+&lt;script type="text/javascript"&gt;<br>
+window.addEvent('load', function() {<br>
+	new DatePicker('.date_toggled', {<br>
+		pickerClass: 'datepicker_dashboard',<br>
+		allowEmpty: true,<br>
+		toggleElements: '.date_toggler'<br>
+	});<br>
+});<br>
+&lt;/script&gt;<br>
+&lt;input name='date_B' type='text' value='' class='date demo_dashboard' /&gt;</div></div><a name="comment_189"></a><div class="comment"><em class="date">02-12-2009, 14:03</em><div class="author">ghazal</div><div class="text">Hi,<br>
+for those, like me, who have to use a language with accented characters, here is a simple workaround for labels :<br>
+1-  convert your character to unicode, here for example<br>
+http://people.w3.org/rishida/scripts/uniview/conversion.php<br>
+2 - insert it in the list of, say, months, like :<br>
+months: ['Janvier', 'F\u00E9vrier', etc ..<br>
+Thats it.</div></div><a name="comment_190"></a><div class="comment"><em class="date">03-12-2009, 17:37</em><div class="author">Nigel</div><div class="text">Hi<br>
+<br>
+Thanks for this script, it looks and works great. I have 2 suggestions that I think would make the script perfect.<br>
+<br>
+1. A way to spread the values across multiple inputs e.g. I could have
+3 drop-downs, one for day, one for month and one for year. Updating the
+calendar updates the selected values in the 3 drop-downs but it also
+allows the user to change a date value without using the calendar. This
+would be very usefull for when javascript is not available.<br>
+<br>
+2. When you use togglebyelement and then change the text in the textbox the output value is not updated.<br>
+<br>
+I hope you consider implementing my ideas .<br>
+Thanks<br>
+Nigel</div></div><a name="comment_191"></a><div class="comment"><em class="date">08-12-2009, 10:43</em><div class="author">Lev</div><div class="text">I'm
+new in this business , so how to I put this calendar in my php based
+form. I uploaded js file to server, and ? How do I call to calendar ?
+And if I choose to work with time option - can I POST date and time in
+different variables ? how ?<br>
+<br>
+with Best Regards <br>
+<br>
+Lev </div></div><a name="comment_192"></a><div class="comment"><em class="date">08-12-2009, 19:45</em><div class="author">kelly</div><div class="text">thanks for the fantastic script!</div></div><a name="comment_194"></a><div class="comment"><em class="date">10-12-2009, 15:28</em><div class="author">Maximiliano</div><div class="text">there
+is a chance to add the zindex property? the picker is awesome, if it
+only have the zindex property will be better :D haha!!<br>
+<br>
+if somebody has a version with the zindex can you send it? thank you in advance</div></div><a name="comment_195"></a><div class="comment"><em class="date">10-12-2009, 15:59</em><div class="author">Maximiliano</div><div class="text">Sorry, i just find the answer, in the Skin you have to add the following statement<br>
+z-index: 9999; <br>
+or the number that you need.. <br>
+<br>
+;)</div></div><a name="comment_196"></a><div class="comment"><em class="date">12-12-2009, 22:46</em><div class="author">Ragnar Holthe</div><div class="text">Problem
+in IE, not FF: When setting minDate value in the future, minDate is not
+selectable in Internet Explorer when first pressing toggler element.
+After date is selected, pressing toggler element once more shows
+minDate selectable. Why is this? I'm using vista skin</div></div><a name="comment_197"></a><div class="comment"><em class="date">16-12-2009, 02:15</em><div class="author">Carlos Carrasco</div><div class="text">Hi
+you all, i red someone asking for autoOpen feature, is really simple.
+Just add an id name to the input field you are using with DatePicker
+Class and then call onFocus(). <br>
+Example:<br>
+"the javascript"<br>
+	myDatePicker = new DatePicker('.demo_value', {<br>
+		pickerClass: 'datepicker_jqui'<br>
+	});<br>
+        myDatePicker.onFocus($('theId'),$('theId').getNext());<br>
+"the html"<br>
+&lt;input type="text" name="some_name" class="demo_value" id="theId" /&gt;<br>
+<br>
+<br>
+That´s all  !  ! ! ! <br>
+I hope you find this usefull.<br>
+Sorry for my low level English ;)</div></div><a name="comment_198"></a><div class="comment"><em class="date">16-12-2009, 15:13</em><div class="author">Boletus</div><div class="text">Wonderful work, thanks. And nice refresh() function Rekcor. Does the trick.</div></div><a name="comment_199"></a><div class="comment"><em class="date">08-01-2010, 15:24</em><div class="author">safi</div><div class="text">how
+can i limit datepicker to help me pick only month and year from year
+view . i dont want it to switch to month view to get particular date. i
+am interested only in getting m/Y </div></div><a name="comment_200"></a><div class="comment"><em class="date">11-01-2010, 14:50</em><div class="author">Jim Reijers</div><div class="text">I'm totally 100% with Nigel's second comment here:<br>
+<br>
+"2. When you use togglebyelement and then change the text in the textbox the output value is not updated."<br>
+<br>
+This is essential! Now my users mistakenly think that they can alter
+the date by changing the text in the textbox. Please fix this soon!<br>
+<br>
+Brilliant picker otherwise. :-)</div></div></div>				</div>
+				
+				<div id="sidebar">
+					
+					<h2>Classes</h2>
+<div class="sidebar_block">
+	<a href="http://www.monkeyphysics.com/mootools/script/2/datepicker">DatePicker</a><div class="paragraph">Smoothly animating and very configurable. No Ajax - pure Javascript.<br></div><br><a href="http://www.monkeyphysics.com/mootools/script/1/dragghost">Drag.Ghost</a><div class="paragraph">Ghosting draggable extension for Drag.Move</div><br>	
+</div>
+
+<h2>Donations</h2>
+<div class="sidebar_block">
+	I welcome any PayPal donation that you'd like to give in return for using these scripts!<br><br>
+	<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+	<input name="cmd" value="_s-xclick" type="hidden">
+	<input name="encrypted" value="-----BEGIN PKCS7-----MIIHNwYJKoZIhvcNAQcEoIIHKDCCByQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCs/2l4dlInIGlhs2IOcC4TQ35mCsBKCPi0lRVVotxnYUW7SHlY/1TQsNixPbr4J2er8/BS7RCMgSAH2+PKBgpSKouBNwQ/4y2sV5spCZDMtodZ4WVn29IQpTV/YAg5OTItl7cNBWBpFOFew+s6caxYu/AVfso88j0Dirv8KlbPPDELMAkGBSsOAwIaBQAwgbQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQIb1HiftjEMmiAgZBcsIUcna9/5V06Np7LePa0B4RXLKKpgozWsD251kseTGnZYzsst//OlGplrDOCEgQN5bXxfhYNCDnlnX2itAr1C10Vl6uMX1unHpnraipHumGFTMRhGsPzoNf+gJ7WAbhtSf2qtgtsabMHzveMhxzL1Vd7XAYzln7SHT3RKvwfNJwNTOK7bjtagurXIWjs9Y6gggOHMIIDgzCCAuygAwIBAgIBADANBgkqhkiG9w0BAQUFADCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wHhcNMDQwMjEzMTAxMzE1WhcNMzUwMjEzMTAxMzE1WjCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMFHTt38RMxLXJyO2SmS+Ndl72T7oKJ4u4uw+6awntALWh03PewmIJuzbALScsTS4sZoS1fKciBGoh11gIfHzylvkdNe/hJl66/RGqrj5rFb08sAABNTzDTiqqNpJeBsYs/c2aiGozptX2RlnBktH+SUNpAajW724Nv2Wvhif6sFAgMBAAGjge4wgeswHQYDVR0OBBYEFJaffLvGbxe9WT9S1wob7BDWZJRrMIG7BgNVHSMEgbMwgbCAFJaffLvGbxe9WT9S1wob7BDWZJRroYGUpIGRMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbYIBADAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4GBAIFfOlaagFrl71+jq6OKidbWFSE+Q4FqROvdgIONth+8kSK//Y/4ihuE4Ymvzn5ceE3S/iBSQQMjyvb+s2TWbQYDwcp129OPIbD9epdr4tJOUNiSojw7BHwYRiPh58S1xGlFgHFXwrEBb3dgNbMUa+u4qectsMAXpVHnD9wIyfmHMYIBmjCCAZYCAQEwgZQwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tAgEAMAkGBSsOAwIaBQCgXTAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0wOTA3MjkwODI2MDhaMCMGCSqGSIb3DQEJBDEWBBRaX6N65Vz5vPbZYwK2RLRd8bLIFDANBgkqhkiG9w0BAQEFAASBgCr87CHxoltcstBeoxTT8L/7Jo5n1j5YTPocH8J0kv581TWpbfbLlQN4aSRDWu5/S6XusiRsh90qiMr5+C4uE7oivsCddaX+5vCmpA8kevm76nA5VBA/FnePc5HgWKhXRu14RmetmQc/ISOPeblUfNF3L6LfC5k0NqYE3wOZb1l+-----END PKCS7-----" type="hidden">
+	<input src="datepicker_files/btn_donate_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online." border="0" type="image">
+	<img alt="" src="datepicker_files/pixel.htm" width="1" border="0" height="1">
+	</form>
+</div>				
+				</div>
+				
+			</div>
+			
+			<div id="footer-spacer">
+			</div>
+			
+		</div>
+		
+		<div id="footer">
+			<ul>
+				<li>RSS feed <a href="http://www.monkeyphysics.com/rss" class="clean"><img alt="RSS feed" title="Subscribe to my RSS feed" src="datepicker_files/rss.png"></a></li>
+				<li>Made with <a href="http://www.apple.com/mac/" class="clean"><img alt="Mac" title="Mac" src="datepicker_files/apple.png"></a></li>
+				<li>All work <a class="clean" rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img title="Some rights reserved" alt="Creative Commons License" style="position: relative; top: 4px;" src="datepicker_files/80x15.png"></a></li>
+				<li><a href="http://www.monkeyphysics.com/about">About</a></li>
+				<li><a href="http://www.monkeyphysics.com/contact">Contact</a></li>
+				<li>© 2008-2010</li>
+			</ul>
+		</div>
+
+		<!-- Google Analytics -->		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="datepicker_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-6833159-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>	</body></html>

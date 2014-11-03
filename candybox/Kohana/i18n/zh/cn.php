@@ -1,0 +1,26 @@
+<?php 
+
+return array(
+    'years' => '年',
+    'year' => '年',
+    'months' => '月',
+    'month' => '月',
+    'weeks' => '周',
+    'week' => '周',
+    'days' => '天',
+    'day' => '天',
+    'hours' => '小时',
+    'hour' => '小时',
+    'minutes' => '分钟',
+    'minute' => '分钟',
+    'seconds' => '秒',
+    'user' => '用户',
+    'news' => '新闻',
+    'event' => '活动',
+    'bbs_unit' => '帖子',
+    'album' => '相册',
+    'aa_main' => '总会',
+    'aa_city' => '地方分',
+    'aa_college' => '学院',
+    'aa_club' => '俱乐部',
+);

@@ -1,0 +1,17 @@
+options:
+  type: MYISAM
+
+#视频
+Video:
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    title: string(200)
+    video_path: string(200)
+    img_path: string(200)
+    intro: string(255)
+    order_num: integer(4)
+    create_at: timestamp
+    hits: integer(4)

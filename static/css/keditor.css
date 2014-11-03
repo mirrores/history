@@ -1,0 +1,23 @@
+.ke-content {
+        font-family: Courier New;
+        font-size: 14px;
+        line-height: 1.5em;
+        background-color: #ffffff;
+}
+.ke-content p{
+        text-indent: 25px; margin-bottom: 15px;font-size:14px;
+}
+
+.ke-content .cmt_quote{
+        padding:10px;
+        background:#FFFFEB;
+        border: 1px solid #DEDE8E;
+        border-top: 2px solid #DEDE8E;
+        margin: 5px 0;
+        color: #666;
+        font-size:12px;
+}
+
+.ke-content .cmt_quote p{
+        margin:0px;padding:0;
+}

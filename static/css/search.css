@@ -1,0 +1,22 @@
+#q{ padding: 3px; width: 40%; font-size: 14px; }
+.mid_tab{
+    padding: 15px 0 0 77px;height: 25px; margin-bottom: 2px
+}
+.mid_tab a:link,.mid_tab a:visited{
+    font-size: 12px;
+    padding: 8px 20px 10px 20px;
+    margin-right: 5px;
+    color: #666;
+}
+.mid_tab a.cur:link,.mid_tab a.cur:visited{ background: #E3EEF8; font-weight: bold }
+#srtable tr{ border-bottom: 1px dotted #eee; }
+#search_input{ margin-top: -5px; font-size: 14px; color: #999}
+#srtable th{ background: #E3EEF8; text-align: left; color: #1169B1; }
+.search_count{ color: #666; padding: 10px 0}
+.search_result{ margin: 10px;}
+.news_table th{height: 23px;padding:2px 4px}
+.news_table td{height: 25px;}
+.news_table .news_title{ background: url(../images/dot1.gif) no-repeat 10px 12px;padding-left: 20px}
+
+    #class_table th{ background: #f8f8f8; border-bottom: 1px solid #ccc; height: 30px;line-height: 30px}
+     #class_table td{ border-bottom: 1px solid #eee; height: 30px;line-height: 30px}

@@ -1,0 +1,15 @@
+/*可以在这里添加你自己的css*/
+body{font-size: 12px; background: #fff;}
+p{font-size: 12px;margin: 0px}
+.cmt_quote{
+        padding:10px;
+        background:#FFFFEB;
+        border: 1px solid #DEDE8E;
+        color: #666;
+        font-size: 12px;
+        margin-bottom: 10px;
+        line-height: 1.4em;
+}
+.cmt_quote p{
+        margin:0px;padding:0;
+}
